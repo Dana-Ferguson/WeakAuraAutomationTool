@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-
-using WeakAuraAutomationTool.LuaMachine;
-using WeakAuraAutomationTool.WeakAuras;
-using WeakAuraAutomationTool.WeakAuras.Data;
-using WeakAuraAutomationTool.WeakAuras.Utility;
 
 namespace WeakAuraAutomationTool
 {
@@ -18,6 +9,7 @@ namespace WeakAuraAutomationTool
         // this would have been helpful to find before I started this
         // https://github.com/oratory/wago.io/tree/master/backend/api/lua
         // todo: https://www.wowhead.com/spell=329487/ardenweald-covenant-ability
+        //  https://github.com/Gethe/wow-ui-source
 
         // todo: optional -- match new LuaFields \ Classes to existing classes to make it easier to update things
         // todo: optional -- tool/script to do WAGO.io uploads?

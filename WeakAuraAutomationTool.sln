@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeakAuraAutomationTool", "WeakAuraAutomationTool\WeakAuraAutomationTool.csproj", "{304A62E7-1F2D-433D-B87A-3EC58A8A3905}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeakAuraAutomationTool", "WeakAuraAutomationTool\WeakAuraAutomationTool.csproj", "{304A62E7-1F2D-433D-B87A-3EC58A8A3905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B9C25FD7-C9C1-45BB-AA8A-3DCDAC629A88}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
