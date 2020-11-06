@@ -1,10 +1,12 @@
 ﻿using WeakAuraAutomationTool.Warcraft;
 
+// ReSharper disable UnusedMember.Global
+
 namespace WeakAuraAutomationTool.Classes
 {
     public class Druid
     {
-        public ClassSpec ClassSpec => ClassSpec.DruidBalance;
+        public ClassSpec ClassSpec => ClassSpec.Balance;
 
         public Druid()
         {

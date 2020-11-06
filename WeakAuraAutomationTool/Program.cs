@@ -9,7 +9,8 @@ namespace WeakAuraAutomationTool
         // this would have been helpful to find before I started this
         // https://github.com/oratory/wago.io/tree/master/backend/api/lua
         // todo: https://www.wowhead.com/spell=329487/ardenweald-covenant-ability
-        //  https://github.com/Gethe/wow-ui-source
+        // https://github.com/Gethe/wow-ui-source
+        // http://moonshinejs.org/editor/
 
         // todo: optional -- match new LuaFields \ Classes to existing classes to make it easier to update things
         // todo: optional -- tool/script to do WAGO.io uploads?
@@ -20,7 +21,9 @@ namespace WeakAuraAutomationTool
             Console.WriteLine("Generating WeakAura!");
             var sw = Stopwatch.StartNew();
 
-            BarbequeParty();
+            // BarbequeParty();
+            // Warcraft.Parser.Parse.ProduceCodeFromCsv();
+            Warcraft.Parser.Parse.ProduceSpellDataFromCsv();
 
             var elapsed = sw.ElapsedMilliseconds;
             Console.WriteLine($"Complete! {elapsed} ms");

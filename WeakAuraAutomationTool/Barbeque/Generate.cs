@@ -48,7 +48,7 @@ namespace WeakAuraAutomationTool.Barbeque
             druid.UrsolsVortex.Talent = 9;
 
             // todo: Lunar Inspiration
-            var feral = new SpecBuilder(ClassSpec.DruidFeral);
+            var feral = new SpecBuilder(ClassSpec.Feral);
 
             feral.AddUtility(
                 druid.Barkskin1,
@@ -100,7 +100,7 @@ namespace WeakAuraAutomationTool.Barbeque
         private static void Balance(WeakAura wa)
         {
             var druid = new Druid();
-            var spec = ClassSpec.DruidBalance;
+            var spec = ClassSpec.Balance;
 
             wa.AddSpell(druid.StellarFlare, spec, -25, 300);
             druid.MoonkinForm1.Invert = true;
@@ -109,7 +109,7 @@ namespace WeakAuraAutomationTool.Barbeque
             druid.IncapacitatingRoar.Talent = 8;
             druid.UrsolsVortex.Talent = 9;
 
-            var balance = new SpecBuilder(ClassSpec.DruidBalance);
+            var balance = new SpecBuilder(ClassSpec.Balance);
 
             balance.AddUtility(
                 druid.Barkskin1,

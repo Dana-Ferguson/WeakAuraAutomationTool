@@ -8,15 +8,18 @@ This currently produces some weak auras. Adding this macro to your toolbar will 
 Todo:
 - [ ] Race abilities
 - [ ] PvP abilities
-- [ ] Look at behavior for leveling characters
 - [ ] Potions, blood lust \ heroism, and other major buffs
-- [ ] add Trinkets
-- [ ] verify that the Rotation + Cooldown groups won't collide
-- [ ] add Covenant Abilities (class in CD group, signature in mobility group)
+- [ ] Trinkets
+- [ ] Covenant Abilities (class in CD group, signature in mobility group)
+- [ ] Resource HuD (exists, but not as output from this tool)
+- [ ] Verify that the Rotation + Cooldown groups won't collide
+- [ ] Look at behavior for leveling characters
+- [ ] Author Info \ Wago Upload \ Link Here
 
 Classes (1st Pass)
 - [ ] Druid
   - [X] Balance
+    - [ ] Eclipse Graphic (requires model support)
   - [X] Feral
   - [ ] Restro
   - [ ] Guardian
@@ -36,3 +39,9 @@ Encounters
 - [ ] Torghast
 - [ ] Dungeons
 - [ ] Castle Nathria
+
+Data
+- [ ] Extract? from DB2
+- [ ] WoW.Dev \ Wow.Tools
+  - [ ] https://wow.tools/dbc/?dbc=spell&build=9.0.2.36512#page=1
+  - [ ] https://marlam.in/obj/ --> https://wow.tools/export/
