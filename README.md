@@ -2,7 +2,7 @@ WeakAuraAutomationTool
 
 This currently produces some weak auras. Adding this macro to your toolbar will allow you to toggle them on and off.
 
-`/run local cvar='BarbecueWeakaurasVisibilityToggle' SetCVar(cvar,1-GetCVar(cvar),cvar`
+`/run local cvar='BarbequeWeakaurasVisibilityToggle' SetCVar(cvar,1-GetCVar(cvar),cvar`
 
 
 Todo:
@@ -20,9 +20,11 @@ Classes (1st Pass)
 - [ ] Druid
   - [X] Balance
     - [ ] Eclipse Graphic (requires model support)
+    - [ ] There are too many things being tracked ~ Options
   - [X] Feral
   - [ ] Restro
   - [ ] Guardian
+  - [ ] Druid Affinities
 - [ ] Warrior
 - [ ] Paladin
 - [ ] Hunter
@@ -45,3 +47,7 @@ Data
 - [ ] WoW.Dev \ Wow.Tools
   - [ ] https://wow.tools/dbc/?dbc=spell&build=9.0.2.36512#page=1
   - [ ] https://marlam.in/obj/ --> https://wow.tools/export/
+
+Options
+- [ ] Investigate how to add Options
+  - [ ] examples: https://wago.io/SypgpjRSW, https://wago.io/1ctv3b91K

@@ -5,17 +5,17 @@
         Spell = 0,
 
         // ClassSets
-        Warrior = 4,
-        Paladin = 10,
-        Hunter = 9,
-        Rogue = 8,
-        Priest = 6,
-        DeathKnight = 15,
-        Shaman = 11,
         Mage = 3,
+        Warrior = 4,
         Warlock = 5,
-        Monk = 53,
+        Priest = 6,
         Druid = 7,
+        Rogue = 8,
+        Hunter = 9,
+        Paladin = 10,
+        Shaman = 11,
+        DeathKnight = 15,
+        Monk = 53,
         DemonHunter = 107,
 
         // Specializations

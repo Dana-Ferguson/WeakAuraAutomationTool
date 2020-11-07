@@ -31,7 +31,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
         public readonly List<SpellLevels> SpellLevels = Csv.Load<SpellLevels>("data/spelllevels.csv");
         public readonly List<SpellMisc> SpellMisc = Csv.Load<SpellMisc>("data/spellmisc.csv");
         public readonly List<SpellName> SpellNames = Csv.Load<SpellName>("data/spellname.csv");
-        public readonly List<SpellPower> Spellpower = Csv.Load<SpellPower>("data/spellpower.csv");
+        public readonly List<SpellPower> SpellPower = Csv.Load<SpellPower>("data/spellpower.csv");
         public readonly List<Talent> Talents = Csv.Load<Talent>("data/talent.csv");
     }
 

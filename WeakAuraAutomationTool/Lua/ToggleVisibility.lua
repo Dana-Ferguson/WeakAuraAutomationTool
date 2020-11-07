@@ -1,5 +1,5 @@
 ﻿function()
-  local cvar = 'BarbecueWeakaurasVisibilityToggle'
+  local cvar = 'BarbequeWeakaurasVisibilityToggle'
   local value = GetCVarBool(cvar)
 
   if value then

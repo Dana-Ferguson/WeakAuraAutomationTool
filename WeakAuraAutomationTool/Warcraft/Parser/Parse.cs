@@ -27,6 +27,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 var varName = csv.Name;
                 Console.WriteLine($"    public readonly List<{csv.Name}> {csv.Name} = Csv.Load<{csv.Name}>(\"data/{csv.Name}.csv\");");
             }
+
             Console.WriteLine("}");
 
             foreach (var csv in data)
@@ -83,7 +84,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
             // SpellCastTimes, SpellCategories, SpellCategory, SpellChainEffects, SpellEquippedItems, SpellLabel, SpellPower
             var spellTalents = data.Talents.ToLookup(s => s.SpellId, t => t);
             var spellNames = data.SpellNames.ToDictionary(s => s.Id, t => t.NameLang);
-            var spellMisc = data.SpellMisc.ToLookup(s => s.SpellId, s => s);
+            var SpellMisc = data.SpellMisc.ToLookup(s => s.SpellId, s => s);
             var spellLevels = data.SpellLevels.ToLookup(s => s.SpellId, s => s);
             var spellInterrupts = data.SpellInterrupts.ToLookup(s => s.SpellId, s => s);
             var spellEffects = data.SpellEffects.ToLookup(s => s.SpellId, s => s);
@@ -92,12 +93,15 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
             var spellClassOptions = data.SpellClassOptions.ToDictionary(s => s.SpellId, s => s);
             var spells = data.Spells.ToDictionary(s => s.Id, s => s);
 
+            var effectTypes = new HashSet<EffectAuraType>();
+            var count = 0;
+
             foreach (var spell in data.Spells)
             {
                 var id = spell.Id;
                 bool isPvP = spell.NameSubtextLang == "PvP Talent";
 
-                var misc = spellMisc[id].FirstOrDefault();
+                var misc = SpellMisc[id].FirstOrDefault();
                 if (misc == null) continue;
 
                 // https://wowdev.wiki/SpellMisc.db2/Attributes
@@ -114,7 +118,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
 
                 var doNotDisplayInAuraBar = (misc.Attributes1 & 0x10000000) != 0;
 
-                if (id == 227692)
+                if (id == 5394)
                 {
                     int x = 5;
                 }
@@ -122,7 +126,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 // todo: EffectAura \ Effect
                 var effect = spellEffects[id];
 
-                if (isTradeSpell || isHidden || isHiddenFromCombatLog || doNotDisplayInAuraBar) continue;
+                if (isTradeSpell || isHidden || isHiddenFromCombatLog) continue; // || doNotDisplayInAuraBar) continue;
                 if (isPassive || canNotCancel) continue;
 
                 var spellTalent = spellTalents[id].FirstOrDefault();
@@ -146,15 +150,31 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
 
                 var test = classOptions?.SpellClassMask3 ?? -1;
 
+                count++;
                 sb.Append($"{id} :: {spec}, {classType}, {name}, {talent}, {duration}, {level}, {cooldown}, {isPvP}, {test}");
+
+                foreach (var i in effect)
+                {
+                    var effectName = (SpellEffectName)i.Effect;
+                    // effectTypes.Add((EffectAuraType)i);
+
+                    var effectAura = (EffectAuraType)i.EffectAura;
+
+                    sb.Append($", {effectName}:{effectAura}");
+                }
 
                 Console.WriteLine(sb.ToString());
             }
+
+            Console.WriteLine($"Total effect types: {effectTypes.Stringify()}");
+            Console.WriteLine($"Total spells: {count}");
         }
     }
 
     internal static class DataExtensions
     {
         public static int TalentPosition(this Talent talent) => talent.TierId * 3 + talent.ColumnIndex;
+
+        public static string Stringify<T>(this IEnumerable<T> enumerable) => string.Join(", ", enumerable.Select(item => item.ToString()));
     }
 }
