@@ -8,7 +8,7 @@ namespace WeakAuraAutomationTool
     {
         // this would have been helpful to find before I started this
         // https://github.com/oratory/wago.io/tree/master/backend/api/lua
-        // todo: https://www.wowhead.com/spell=329487/ardenweald-covenant-ability
+        // https://www.wowhead.com/spell=329487/ardenweald-covenant-ability
         // https://github.com/Gethe/wow-ui-source
         // http://moonshinejs.org/editor/
 

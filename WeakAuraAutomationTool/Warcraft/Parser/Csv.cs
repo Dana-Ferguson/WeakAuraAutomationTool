@@ -7,9 +7,35 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
 
 namespace WeakAuraAutomationTool.Warcraft.Parser
 {
+    /// <summary>
+    /// Flags in WoW are 32 bit field masks, which maps better to UINT, but are pulled in as signed int's from the CSV
+    /// </summary>
+    public class UIntConverter : ITypeConverter
+    {
+        public string ConvertToString(object value, IWriterRow row, MemberMapData memberMapData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object ConvertFromString(string text, IReaderRow row, MemberMapData memberMapData)
+        {
+            var numberStyle = memberMapData.TypeConverterOptions.NumberStyle ?? NumberStyles.Integer;
+
+            if (int.TryParse(text, numberStyle, memberMapData.TypeConverterOptions.CultureInfo, out var i))
+            {
+                if (i > 0) return (uint)i;
+                return BitConverter.ToUInt32(BitConverter.GetBytes(i));
+            }
+
+            throw new Exception($"Failed to convert to uint. Text is {text}. Line is {row.Context.Row}.");
+        }
+    }
+
     public class Csv
     {
         public readonly Dictionary<string, string> HeaderTypes;
@@ -32,6 +58,9 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
         {
             using var reader = new StreamReader(path);
             using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+
+            csv.Configuration.TypeConverterCache.RemoveConverter<uint>();
+            csv.Configuration.TypeConverterCache.AddConverter<uint>(new UIntConverter());
 
             csv.Configuration.HasHeaderRecord = true;
             return csv.GetRecords<T>().ToList();

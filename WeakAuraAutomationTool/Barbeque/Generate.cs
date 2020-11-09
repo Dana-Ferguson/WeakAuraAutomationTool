@@ -11,16 +11,6 @@ namespace WeakAuraAutomationTool.Barbeque
 {
     public static class Generate
     {
-        // todo: Race abilities
-        // todo: add PvP abilities
-        // todo: look at leveling???
-
-        // todo: potions, blood lust \ heroism!, other buff checks?
-
-        // todo: add Trinkets ~ verify that the Rotation + Cooldown groups won't collide
-        // todo: add Covenant Abilities (class (on CD's))
-        // todo: add Covenant Abilities (signature (on mobility))
-
         public static WeakAura Go()
         {
             // Barbeque is better than Barbecue because BBQ
@@ -33,13 +23,14 @@ namespace WeakAuraAutomationTool.Barbeque
 
         private static void Build(WeakAura bbq)
         {
+            // todo: druid has spells currently suppressed
             Balance(bbq);
             Feral(bbq);
         }
 
         private static void Feral(WeakAura wa)
         {
-            var druid = new Druid();
+            var druid = new DruidOld();
 
             druid.CatForm.Invert = true;
 
@@ -61,12 +52,12 @@ namespace WeakAuraAutomationTool.Barbeque
                 druid.IncapacitatingRoar,
                 druid.UrsolsVortex,
                 druid.Cyclone,
-                druid.EntanglingRoots1,
-                druid.Hibernate,
+                // druid.EntanglingRoots1,
+                // druid.Hibernate,
                 // Glow if target Enraged?
-                druid.Soothe,
+                // druid.Soothe,
                 // Glow if target -or- Player is Corrupted?
-                druid.RemoveCorruption,
+                // druid.RemoveCorruption,
                 druid.HeartOfTheWild
             ).AddCoreRotation(
                 druid.Thrash2,
@@ -99,7 +90,7 @@ namespace WeakAuraAutomationTool.Barbeque
 
         private static void Balance(WeakAura wa)
         {
-            var druid = new Druid();
+            var druid = new DruidOld();
             var spec = ClassSpec.Balance;
 
             wa.AddSpell(druid.StellarFlare, spec, -25, 300);
@@ -124,12 +115,12 @@ namespace WeakAuraAutomationTool.Barbeque
                 druid.UrsolsVortex,
                 druid.Maim,
                 druid.Cyclone,
-                druid.EntanglingRoots1,
-                druid.Hibernate,
+                // druid.EntanglingRoots1,
+                // druid.Hibernate,
                 // Glow if target Enraged?
-                druid.Soothe,
+                // druid.Soothe,
                 // Glow if target -or- Player is Corrupted?
-                druid.RemoveCorruption,
+                // druid.RemoveCorruption,
                 druid.HeartOfTheWild
             ).AddCoreRotation(
                 druid.Sunfire2,

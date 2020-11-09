@@ -4,7 +4,6 @@ This currently produces some weak auras. Adding this macro to your toolbar will 
 
 `/run local cvar='BarbequeWeakaurasVisibilityToggle' SetCVar(cvar,1-GetCVar(cvar),cvar`
 
-
 Todo:
 - [ ] Race abilities
 - [ ] PvP abilities
@@ -20,7 +19,9 @@ Classes (1st Pass)
 - [ ] Druid
   - [X] Balance
     - [ ] Eclipse Graphic (requires model support)
-    - [ ] There are too many things being tracked ~ Options
+    - [ ] There are too many things being tracked
+      - [ ] Look at adding Customizations in Options \ WA Configuration Panel
+      - [ ] Show only when on CD (how does this interact with the position_by_talents_lua?)
   - [X] Feral
   - [ ] Restro
   - [ ] Guardian
@@ -43,10 +44,7 @@ Encounters
 - [ ] Castle Nathria
 
 Data
-- [ ] Extract? from DB2
-- [ ] WoW.Dev \ Wow.Tools
-  - [ ] https://wow.tools/dbc/?dbc=spell&build=9.0.2.36512#page=1
-  - [ ] https://marlam.in/obj/ --> https://wow.tools/export/
+- [X] Extract Data from Game
 
 Options
 - [ ] Investigate how to add Options

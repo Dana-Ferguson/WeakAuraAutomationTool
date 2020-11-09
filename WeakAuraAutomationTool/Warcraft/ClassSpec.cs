@@ -16,6 +16,8 @@
         Shaman = 11,
         DeathKnight = 15,
         Monk = 53,
+        // Maybe just generic special ability?
+        WarlockDemon = 57,
         DemonHunter = 107,
 
         // Specializations

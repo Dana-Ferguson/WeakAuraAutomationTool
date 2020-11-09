@@ -10,6 +10,9 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
 {
     public class WowData
     {
+        public readonly List<SpecializationSpell> SpecializationSpells = Csv.Load<SpecializationSpell>("data/specializationspells.csv");
+        public readonly List<SpellRange> SpellRanges = Csv.Load<SpellRange>("data/spellrange.csv");
+
         public readonly List<Spell> Spells = Csv.Load<Spell>("data/spell.csv");
         public readonly List<SpellActionBarPref> SpellActionBarPrefs = Csv.Load<SpellActionBarPref>("data/spellactionbarpref.csv");
         public readonly List<SpellActivationOverlay> SpellActivationOverlays = Csv.Load<SpellActivationOverlay>("data/spellactivationoverlay.csv");
@@ -33,6 +36,28 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
         public readonly List<SpellName> SpellNames = Csv.Load<SpellName>("data/spellname.csv");
         public readonly List<SpellPower> SpellPower = Csv.Load<SpellPower>("data/spellpower.csv");
         public readonly List<Talent> Talents = Csv.Load<Talent>("data/talent.csv");
+    }
+
+    public class SpellRange
+    {
+        [Name("ID")] public int Id { get; set; }
+        [Name("DisplayName_lang")] public string DisplayName { get; set; }
+        [Name("DisplayNameShort_lang")] public string DisplayNameShort { get; set; }
+        [Name("Flags")] public int SpellIdOverride { get; set; }
+        [Name("RangeMin[0]")] public double RangeMin0 { get; set; }
+        [Name("RangeMin[1]")] public double RangeMin1 { get; set; }
+        [Name("RangeMax[0]")] public double RangeMax0 { get; set; }
+        [Name("RangeMax[1]")] public double RangeMax1 { get; set; }
+    }
+
+    public class SpecializationSpell
+    {
+        [Name("Description_lang")] public string DescriptionLang { get; set; }
+        [Name("ID")] public int Id { get; set; }
+        [Name("SpecID")] public int SpecId { get; set; }
+        [Name("SpellID")] public int SpellId { get; set; }
+        [Name("OverridesSpellID")] public int SpellIdOverride { get; set; }
+        [Name("DisplayOrder")] public int DisplayOrder { get; set; }
     }
 
     public class Spell
@@ -343,21 +368,21 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
     public class SpellMisc
     {
         [Name("ID")] public int Id { get; set; }
-        [Name("Attributes[0]")] public int Attributes0 { get; set; }
-        [Name("Attributes[1]")] public int Attributes1 { get; set; }
-        [Name("Attributes[2]")] public int Attributes2 { get; set; }
-        [Name("Attributes[3]")] public int Attributes3 { get; set; }
-        [Name("Attributes[4]")] public int Attributes4 { get; set; }
-        [Name("Attributes[5]")] public int Attributes5 { get; set; }
-        [Name("Attributes[6]")] public int Attributes6 { get; set; }
-        [Name("Attributes[7]")] public int Attributes7 { get; set; }
-        [Name("Attributes[8]")] public int Attributes8 { get; set; }
-        [Name("Attributes[9]")] public int Attributes9 { get; set; }
-        [Name("Attributes[10]")] public int Attributes10 { get; set; }
-        [Name("Attributes[11]")] public int Attributes11 { get; set; }
-        [Name("Attributes[12]")] public int Attributes12 { get; set; }
-        [Name("Attributes[13]")] public int Attributes13 { get; set; }
-        [Name("Attributes[14]")] public int Attributes14 { get; set; }
+        [Name("Attributes[0]")] public uint Attributes0 { get; set; }
+        [Name("Attributes[1]")] public uint Attributes1 { get; set; }
+        [Name("Attributes[2]")] public uint Attributes2 { get; set; }
+        [Name("Attributes[3]")] public uint Attributes3 { get; set; }
+        [Name("Attributes[4]")] public uint Attributes4 { get; set; }
+        [Name("Attributes[5]")] public uint Attributes5 { get; set; }
+        [Name("Attributes[6]")] public uint Attributes6 { get; set; }
+        [Name("Attributes[7]")] public uint Attributes7 { get; set; }
+        [Name("Attributes[8]")] public uint Attributes8 { get; set; }
+        [Name("Attributes[9]")] public uint Attributes9 { get; set; }
+        [Name("Attributes[10]")] public uint Attributes10 { get; set; }
+        [Name("Attributes[11]")] public uint Attributes11 { get; set; }
+        [Name("Attributes[12]")] public uint Attributes12 { get; set; }
+        [Name("Attributes[13]")] public uint Attributes13 { get; set; }
+        [Name("Attributes[14]")] public uint Attributes14 { get; set; }
         [Name("DifficultyID")] public int DifficultyId { get; set; }
         [Name("CastingTimeIndex")] public int CastingTimeIndex { get; set; }
         [Name("DurationIndex")] public int DurationIndex { get; set; }
