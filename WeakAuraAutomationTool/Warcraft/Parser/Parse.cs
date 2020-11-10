@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using WeakAuraAutomationTool.Warcraft.Parser.Enumerations;
 
 namespace WeakAuraAutomationTool.Warcraft.Parser
 {
@@ -74,12 +73,12 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
             var spellNames = data.SpellNames.ToDictionary(s => s.Id, t => t.NameLang);
             var spellMisc = data.SpellMisc.ToLookup(s => s.SpellId, s => s);
             var spellLevels = data.SpellLevels.ToLookup(s => s.SpellId, s => s);
-            var spellInterrupts = data.SpellInterrupts.ToLookup(s => s.SpellId, s => s);
+            // var spellInterrupts = data.SpellInterrupts.ToLookup(s => s.SpellId, s => s);
             var spellEffects = data.SpellEffects.ToLookup(s => s.SpellId, s => s);
             var spellDurations = data.SpellDurations.ToDictionary(s => s.Id, s => s);
             var spellCooldowns = data.SpellCooldowns.ToLookup(s => s.SpellId, s => s);
             var spellClassOptions = data.SpellClassOptions.ToDictionary(s => s.SpellId, s => s);
-            var spellCastingRequirements = data.SpellCastingRequirements.ToDictionary(s => s.SpellId, s => s);
+            // var spellCastingRequirements = data.SpellCastingRequirements.ToDictionary(s => s.SpellId, s => s);
             var spellSpecialization = data.SpecializationSpells.ToLookup(s => s.SpellId, s => s);
             var spellRange = data.SpellRanges.ToDictionary(s => s.Id, s => s);
             // var spells = data.Spells.ToDictionary(s => s.Id, s => s);
@@ -103,14 +102,16 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 var id = spell.Id;
                 var spellName = spellNames[id];
 
+                // todo: are we dropping valid spells?
                 var isPvP = spell.NameSubtextLang == "PvP Talent";
                 var isPlaceHolder = spellName.StartsWith("PH");
                 var isFx = spellName.StartsWith("FX");
                 var isPortal = spellName.Contains("Portal");
+                var isDnd = spellName.Contains("DND");
                 var isTest = spellName.ToLowerInvariant().Contains("test");
                 var isNyi = spellName.ToLowerInvariant().Contains("nyi");
                 var isTbd = spellName.ToLowerInvariant().Contains("tbd");
-                if (isPlaceHolder || isTest || isPortal || isFx || isTbd || isNyi)
+                if (isPlaceHolder || isTest || isPortal || isFx || isTbd || isNyi || isDnd)
                 {
                     skipped++;
                     continue;
@@ -119,7 +120,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 if (!spellMisc[id].Any()) continue;
 
                 // todo: remove when done with testing
-                if (id == 115078)
+                if (id == 202345)
                 {
                     int x = 5;
                 }
@@ -192,18 +193,16 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 var cooldown = spellCooldowns[id].Select(s => s.CategoryRecoveryTime / 1000.0).ToHashSet().OrderBy(i => i).ToList();
 
                 var attributes = spellMisc[id].GetAttributes().ToHashSet();
-                if (attributes.Contains("HiddenClientSide") || attributes.Contains("IsGarrisonBuff"))
-                {
-                    skipped++;
-                    continue;
-                }
-
                 // var icon = icon
 
                 // var test = classOptions?.SpellClassMask3 ?? -1;
                 var test = talents.Count != 0 && talents.All(t => t.Talent != 0)
                            || levelLearned.Count != 0 && levelLearned.All(l => l != 0);
-                if (!test) continue;
+                if (!test)
+                {
+                    skipped++;
+                    continue;
+                }
 
                 if (classSpecs.Count == 0)
                 {
@@ -221,6 +220,13 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
 
                 if (classSpecs.Contains(ClassSpec.WarlockDemon)) continue;
                 if (effects.Any(e => e.Name == SpellEffectName.QuestComplete)) continue;
+
+                if (/*attributes.Contains("HiddenClientSide") ||*/ attributes.Contains("IsGarrisonBuff"))
+                {
+                    Console.WriteLine($"SKIPPED:::::: {id}:{spellName}: SpellMisc.Count = {spellMisc[id].Count()}: {attributes.Stringify()}");
+                    skipped++;
+                    continue;
+                }
 
                 var sb = new StringBuilder();
 
@@ -331,8 +337,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
             var moreOutput = new Dictionary<string, string>();
             var finalCode = new StringBuilder();
 
-            // todo: "Body and Soul" -- bugged -- talents -vs- Spec not working
-            // I'm sorry -- I need to redo all of this stuff here --
+            // I'm sorry -- this code is terrible -- I need to redo all of this stuff here --
             var _classType = ClassType.Pet;
             var _classSpec = ClassSpec.WarlockDemon;
 
@@ -449,119 +454,6 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
             }
 
             return varName;
-        }
-    }
-
-    internal class AggregatedSpellData
-    {
-        public ClassType ClassType;
-        public ClassSpec ClassSpec;
-        public string SpellName;
-
-        public List<int> SpellIds;
-        public List<int> Levels;
-        public int Talent;
-        public int Icon;
-
-        public List<double> Cooldowns = new List<double>();
-        public List<double> Durations = new List<double>();
-
-        public bool IsPvp;
-        public double Range;
-
-        public HashSet<string> Categories = new HashSet<string>();
-        public List<SpellEffectData> Effects = new List<SpellEffectData>();
-    }
-
-    internal class SpellData
-    {
-        public int SpellId;
-
-        public ClassType ClassType;
-        public ClassSpec ClassSpec;
-        public string SpellName;
-
-        public int Level;
-        public int Talent;
-        public int Icon;
-
-        public List<double> Cooldowns = new List<double>();
-        public List<double> Durations = new List<double>();
-
-        public bool IsPvp;
-        public double Range;
-
-        public HashSet<string> Categories = new HashSet<string>();
-        public List<SpellEffectData> Effects = new List<SpellEffectData>();
-    }
-
-    internal class SpellTalentSpec
-    {
-        public readonly int Talent;
-        public readonly ClassSpec Spec;
-
-        public SpellTalentSpec(int talent)
-        {
-            Talent = talent;
-        }
-
-        public SpellTalentSpec(Talent talent)
-        {
-            Talent = talent.TalentPosition();
-            Spec = (ClassSpec)talent.SpecId;
-        }
-
-        public override int GetHashCode() => HashCode.Combine(Talent, Spec);
-
-        public override bool Equals(object? obj) => obj is SpellTalentSpec data && data.Talent == Talent && data.Spec == Spec;
-
-        public override string ToString() => $"{Spec}:{Talent}";
-    }
-
-    internal static class DataExtensions
-    {
-        public static int TalentPosition(this Talent talent) => talent.TierId * 3 + talent.ColumnIndex + 1;
-
-        public static string Stringify<T>(this IEnumerable<T> enumerable) => string.Join(", ", enumerable.Select(item => item.ToString()));
-
-        public static IEnumerable<string> GetAttributes(this IEnumerable<SpellMisc> spell) => spell.SelectMany(GetAttributes).ToList();
-
-        public static IEnumerable<string> GetAttributes(this SpellMisc spell)
-        {
-            var attributes = new List<string>();
-
-            spell.Attributes0.GetFlags<SpellMiscAttributes0>().AddTo(attributes);
-            spell.Attributes1.GetFlags<SpellMiscAttributes1>().AddTo(attributes);
-            spell.Attributes2.GetFlags<SpellMiscAttributes2>().AddTo(attributes);
-            spell.Attributes3.GetFlags<SpellMiscAttributes3>().AddTo(attributes);
-            spell.Attributes4.GetFlags<SpellMiscAttributes4>().AddTo(attributes);
-            spell.Attributes5.GetFlags<SpellMiscAttributes5>().AddTo(attributes);
-            spell.Attributes6.GetFlags<SpellMiscAttributes6>().AddTo(attributes);
-            spell.Attributes7.GetFlags<SpellMiscAttributes7>().AddTo(attributes);
-            spell.Attributes8.GetFlags<SpellMiscAttributes8>().AddTo(attributes);
-            spell.Attributes9.GetFlags<SpellMiscAttributes9>().AddTo(attributes);
-            spell.Attributes10.GetFlags<SpellMiscAttributes10>().AddTo(attributes);
-            spell.Attributes11.GetFlags<SpellMiscAttributes11>().AddTo(attributes);
-            spell.Attributes12.GetFlags<SpellMiscAttributes12>().AddTo(attributes);
-            spell.Attributes13.GetFlags<SpellMiscAttributes13>().AddTo(attributes);
-            // todo: is this important?
-            // spell.Attributes14.GetFlags<SpellMiscAttributes14>().AddTo(attributes);
-
-            // todo: other variables?
-
-            return attributes;
-        }
-
-        private static IEnumerable<string> GetFlags<T>(this uint flags) where T : Enum
-        {
-            var mask = (T)Enum.ToObject(typeof(T), flags);
-            return Enum.GetValues(typeof(T)).OfType<T>().Where(flag => mask.HasFlag(flag)).Select(flag => flag.ToString());
-        }
-
-        private static IEnumerable<string> AddTo(this IEnumerable<string> flags, List<string> values)
-        {
-            values.AddRange(flags);
-            return values;
         }
     }
 }

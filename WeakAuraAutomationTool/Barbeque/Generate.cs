@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
 
 using WeakAuraAutomationTool.Automation;
@@ -16,7 +17,8 @@ namespace WeakAuraAutomationTool.Barbeque
             // Barbeque is better than Barbecue because BBQ
             var bbq = new WeakAura("BarbequeAuras");
 
-            Build(bbq);
+            // Build(bbq);
+            Build2(bbq);
 
             return bbq;
         }
@@ -26,6 +28,100 @@ namespace WeakAuraAutomationTool.Barbeque
             // todo: druid has spells currently suppressed
             Balance(bbq);
             Feral(bbq);
+        }
+
+        private static void Build2(WeakAura bbq)
+        {
+            // todo: druid has spells currently suppressed
+            Balance2(bbq);
+            // Feral(bbq);
+        }
+
+        private static void Balance2(WeakAura wa)
+        {
+            var druid = new Balance();
+            var spec = ClassSpec.Balance;
+
+            druid.MoonkinForm.Invert = true;
+
+            // Spells attached to affinities;
+            var feral = new Feral();
+            var maim = feral.Maim;
+            maim.Talent = 7;
+
+            var guardian = new Guardian();
+            var incapacitatingRoar = guardian.IncapacitatingRoar;
+            incapacitatingRoar.Talent = 8;
+
+            var resto = new RestorationDruid();
+            var ursolsVortex = resto.UrsolsVortex;
+            ursolsVortex.Talent = 9;
+
+            druid.Wrath.BigStacks = true;
+            druid.Starfire.BigStacks = true;
+
+            // druid.StellarFlare.Type = SpellType.DoT;
+            // druid.Sunfire.Type = SpellType.DoT;
+            // druid.Moonfire.Type = SpellType.DoT;
+
+            // todo: these don't work
+            druid.StellarFlare.Durations.Add(24);
+            druid.Sunfire.Durations.Add(18);
+            druid.Moonfire.Durations.Add(22);
+
+            var balance = new SpecBuilder(ClassSpec.Balance);
+
+            wa.AddSpell(druid.StellarFlare, spec, -25, 300);
+
+            balance.AddUtility(
+                druid.Barkskin.Buff(),
+                druid.Renewal,
+                druid.Innervate,
+                druid.Typhoon,
+                druid.Rebirth,
+                druid.SolarBeam.DeBuff(),
+                druid.MightyBash.DeBuff(),
+                druid.MassEntanglement.DeBuff(),
+                incapacitatingRoar.DeBuff(),
+                ursolsVortex.DeBuff(),
+                maim.DeBuff(),
+                druid.Cyclone.DeBuff(),
+                // druid.EntanglingRoots1,
+                // druid.Hibernate,
+                // Glow if target Enraged?
+                // druid.Soothe,
+                // Glow if target -or- Player is Corrupted?
+                // druid.RemoveCorruption,
+                druid.HeartOfTheWild
+            ).AddCoreRotation(
+                druid.Sunfire.DoT().NoCd(),
+                druid.Moonfire.DoT().NoCd(),
+                druid.Wrath,
+                druid.Starfire
+            ).AddCoreCooldowns(
+                druid.CelestialAlignment.Buff(),
+                // druid.IncarnationChosenOfElune,
+                druid.WarriorOfElune.DeBuff(),
+                // Spell: 248280 triggers for each treant summoned -- start a 10 second timer?
+                druid.ForceOfNature,
+                druid.FuryOfElune.Buff(),
+                druid.NewMoon
+            ).AddMobility(
+                druid.Dash,
+                // druid.TigerDash,
+                druid.WildCharge,
+                druid.StampedingRoar.Buff()
+            ).AddCombatBuffs(
+                druid.Starlord.Buff().NoCd(),
+                druid.Starfall.Buff().NoCd(),
+                druid.Starsurge.Buff().NoCd(),
+                // druid.SoulOfTheForest,
+                druid.Solstice.Buff().NoCd()
+            ).AddAlerts(
+                druid.MoonkinForm.Buff().NoCd(),
+                druid.CatForm.Buff().NoCd(),
+                druid.BearForm.Buff().NoCd()
+            ).Build(wa);
         }
 
         private static void Feral(WeakAura wa)

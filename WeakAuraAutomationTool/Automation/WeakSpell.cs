@@ -23,7 +23,7 @@ namespace WeakAuraAutomationTool.Automation
             if (spell.Type.HasFlag(SpellType.Cooldown))
             {
                 var aura = AuraIcon.Generate(auraId);
-                aura.WatchAbilityCooldown(spell.Name, spell.Id);
+                aura.WatchAbilityCooldown(spell.Name, spell.SpellIds);
                 addedAuras.Add(aura);
             }
 
@@ -33,7 +33,7 @@ namespace WeakAuraAutomationTool.Automation
                 onTarget.WatchForDebuffOnTarget(spell.Name);
 
                 var notOnTarget = AuraIcon.Generate($"{auraId}_not_on_target");
-                notOnTarget.WatchForDebuffNotOnTarget(spell.Name, spell.Id);
+                notOnTarget.WatchForDebuffNotOnTarget(spell.Name, spell.SpellIds);
                 notOnTarget.AddGlow(new Color(1, 0.04, 0.3));
 
                 var refreshable = (int)Math.Floor(spell.Duration * 0.3);
@@ -116,7 +116,7 @@ namespace WeakAuraAutomationTool.Automation
             sb.Append('_');
             sb.Append(spell.Name);
             sb.Append('_');
-            sb.Append(spell.Id);
+            sb.Append(spell.SpellIds.First());
 
             //if (spell.Type.HasFlag(SpellType.Cooldown)) sb.Append("_cd");
             //if (spell.Type.HasFlag(SpellType.DebuffOnTarget)) sb.Append("_debuff");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WeakAuraAutomationTool.WeakAuras;
 using WeakAuraAutomationTool.WeakAuras.Data;
@@ -41,26 +42,26 @@ namespace WeakAuraAutomationTool.Automation
 
         // Trigger.SpellName if want to use the ID instead of spell name
         // 93402
-        public static void WatchForDebuffNotOnTarget(this Aura aura, string debuff, int spell)
+        public static void WatchForDebuffNotOnTarget(this Aura aura, string debuff, IEnumerable<int> spells)
         {
             var notOnTarget = DebuffOnTargetTrigger(debuff);
             notOnTarget.Trigger.MatchesShowOn = "showOnMissing";
 
-            var usable = AbilityUsableTrigger(spell);
+            var usable = AbilityUsableTrigger(spells);
 
             aura.Triggers.Disjunctive = "all";
             aura.Triggers.Group.Add(notOnTarget);
             aura.Triggers.Group.Add(usable);
         }
 
-        public static void WatchAbilityCooldown(this Aura aura, string ability, int spellId)
+        public static void WatchAbilityCooldown(this Aura aura, string ability, IEnumerable<int> spells)
         {
-            var trigger = AbilityCooldownTrigger(ability, spellId);
+            var trigger = AbilityCooldownTrigger(ability, spells);
             aura.Triggers.Group.Add(trigger);
             aura.Triggers.ActiveTriggerMode = -10;
         }
 
-        private static TriggerGroup AbilityCooldownTrigger(string ability, int spellId)
+        private static TriggerGroup AbilityCooldownTrigger(string ability, IEnumerable<int> spells) // int spellId)
         {
             var trigger = new TriggerGroup
             {
@@ -74,9 +75,9 @@ namespace WeakAuraAutomationTool.Automation
                     GenericShowOn = "showAlways",//
                     Names = new List<string>(),//
                     RealSpellName = ability, //
-                    SpellName = spellId,
+                    SpellName = spells.First(),
                     // OwnOnly = true,
-                    SpellIds = new List<long>(), //
+                    SpellIds = spells.Select(s => (long)s).ToList(), //
                     SubeventPrefix = "SPELL", //
                     SubeventSuffix = "_CAST_START", //
                     // Track = "auto",
@@ -162,7 +163,7 @@ namespace WeakAuraAutomationTool.Automation
             return buff;
         }
 
-        private static TriggerGroup AbilityUsableTrigger(int spell)
+        private static TriggerGroup AbilityUsableTrigger(IEnumerable<int> spells)
         {
             return new TriggerGroup
             {
@@ -177,7 +178,8 @@ namespace WeakAuraAutomationTool.Automation
                     SubeventPrefix = "SPELL",
                     SubeventSuffix = "_CAST_START",
                     UseSpellName = true,
-                    SpellName = spell,
+                    SpellName = (long)spells.First(),
+                    SpellIds = spells.Select(s => (long)s).ToList(),
                     Unevent = "auto",
                     // RealSpellName = spell,
                     Type = "status"

@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using WeakAuraAutomationTool.Warcraft.Parser;
 
 namespace WeakAuraAutomationTool.Warcraft
@@ -9,7 +13,9 @@ namespace WeakAuraAutomationTool.Warcraft
     public class Spell
     {
         public readonly string Name;
-        public int SpellId;
+
+        public List<int> SpellIds = new List<int>();
+        public List<int> Levels = new List<int>();
 
         public ClassType ClassType;
         public ClassSpec ClassSpec;
@@ -29,14 +35,15 @@ namespace WeakAuraAutomationTool.Warcraft
         public List<SpellEffectData> Effects = new List<SpellEffectData>();
 
         // OLD STUFF
-        public readonly int Id;
-        public readonly SpellSchool School;
-        public readonly string Rank;
-        public readonly ClassSpec[] ClassSpecs;
+        [Obsolete] public readonly int Id;
+        [Obsolete] public readonly SpellSchool School;
+        [Obsolete] public readonly string Rank;
+        [Obsolete] public readonly ClassSpec[] ClassSpecs;
+
+        [Obsolete] public double Duration = 0;
 
         // Sort of building a style sheet type API ~ need to come back later for a second pass
         public SpellType Type = SpellType.Cooldown;
-        public double Duration = 0;
         // Contextual ~ clean these up? --- have a reset() mechanic? --- the classes aren't static?? Prob's fine!
         public bool Invert = false;
         public bool BigStacks = false;
@@ -56,11 +63,75 @@ namespace WeakAuraAutomationTool.Warcraft
             ClassSpecs = classSpec.Select(cs => (ClassSpec)cs).ToArray();
         }
 
-        public Spell(string name, ClassType type, ClassSpec spec,
+        public Spell(string name, ClassType classType, ClassSpec classSpec,
             int[] spellIds, int[] levels, int talent, int icon,
             double[] cooldowns, double[] durations, bool isPvp, double range,
             string[] categories, SpellEffectData[] data)
         {
+            Name = name;
+            ClassType = classType;
+            ClassSpec = classSpec;
+            SpellIds.AddRange(spellIds);
+            Levels.AddRange(levels);
+            Talent = talent;
+            Icon = icon;
+
+            Cooldowns.AddRange(cooldowns);
+            Durations.AddRange(durations);
+
+            IsPvp = isPvp;
+            Range = range;
+
+            Categories = categories.ToHashSet();
+            Effects = data.ToList();
+
+            if (Effects.Any(e => e.AuraType == EffectAuraType.PeriodicDamage))
+            {
+                Type |= SpellType.DoT;
+            }
+        }
+
+        // Minimal Variant
+        public Spell(string name, ClassType classType, ClassSpec classSpec,
+            int spellId, int talent, SpellType spellType = SpellType.Cooldown)
+        {
+            Name = name;
+            ClassType = classType;
+            ClassSpec = classSpec;
+            SpellIds.Add(spellId);
+            Talent = talent;
+            Type = spellType;
+        }
+    }
+
+    public static class SpellExtensions
+    {
+        public static Spell DoT(this Spell spell)
+        {
+            spell.Type |= SpellType.DoT;
+            return spell;
+        }
+
+        public static Spell Buff(this Spell spell)
+        {
+            spell.Type |= SpellType.BuffOnPlayer;
+            return spell;
+        }
+
+        public static Spell DeBuff(this Spell spell)
+        {
+            spell.Type |= SpellType.DebuffOnTarget;
+            return spell;
+        }
+
+        public static Spell NoCd(this Spell spell)
+        {
+            if (spell.Type.HasFlag(SpellType.Cooldown))
+            {
+                spell.Type &= ~SpellType.Cooldown;
+            }
+
+            return spell;
         }
     }
 }
