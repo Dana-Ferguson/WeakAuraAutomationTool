@@ -47,6 +47,7 @@ namespace WeakAuraAutomationTool.Warcraft
         // Contextual ~ clean these up? --- have a reset() mechanic? --- the classes aren't static?? Prob's fine!
         public bool Invert = false;
         public bool BigStacks = false;
+        public bool UseIcon = false;
 
         /// <summary>if SpellType is Buff*, this can override the default (which would be to look for itself) </summary>
         public readonly List<Spell> AssociatedAuras = new List<Spell>();
@@ -124,13 +125,32 @@ namespace WeakAuraAutomationTool.Warcraft
             return spell;
         }
 
-        public static Spell NoCd(this Spell spell)
+        public static Spell Passive(this Spell spell)
         {
             if (spell.Type.HasFlag(SpellType.Cooldown))
             {
                 spell.Type &= ~SpellType.Cooldown;
             }
 
+            return spell;
+        }
+
+        public static Spell BigStacks(this Spell spell)
+        {
+            spell.BigStacks = true;
+            return spell;
+        }
+
+        public static Spell UseIcon(this Spell spell, Spell icon)
+        {
+            spell.Icon = icon.Icon;
+            spell.UseIcon = true;
+            return spell;
+        }
+
+        public static Spell AssociateAura(this Spell spell, Spell aura)
+        {
+            spell.AssociatedAuras.Add(aura);
             return spell;
         }
     }

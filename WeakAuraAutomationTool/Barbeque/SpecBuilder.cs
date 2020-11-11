@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 
 using WeakAuraAutomationTool.Automation;
-using WeakAuraAutomationTool.Classes;
 using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.WeakAuras;
 

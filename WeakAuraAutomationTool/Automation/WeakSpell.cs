@@ -17,6 +17,7 @@ namespace WeakAuraAutomationTool.Automation
 
         public static List<Aura> AddSpell(this WeakAura weak, Spell spell, ClassSpec classSpec, int x, int y)
         {
+            // todo: Use_Icon
             var addedAuras = new List<Aura>();
             var auraId = GenerateAuraId(classSpec, spell);
 
@@ -36,7 +37,7 @@ namespace WeakAuraAutomationTool.Automation
                 notOnTarget.WatchForDebuffNotOnTarget(spell.Name, spell.SpellIds);
                 notOnTarget.AddGlow(new Color(1, 0.04, 0.3));
 
-                var refreshable = (int)Math.Floor(spell.Duration * 0.3);
+                var refreshable = (int)Math.Floor(spell.Durations.Max() * 0.3);
                 if (refreshable < 1)
                 {
                     Console.WriteLine($"WARN: {spell} refreshable very low: {refreshable};");
