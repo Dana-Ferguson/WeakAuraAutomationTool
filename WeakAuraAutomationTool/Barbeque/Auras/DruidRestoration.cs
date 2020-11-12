@@ -5,16 +5,15 @@ using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
 
-namespace WeakAuraAutomationTool.Barbeque.Classes
+namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal static class RestorationDruidAuras
+    internal static class DruidRestoration
     {
         public static void Generate(WeakAura wa)
         {
             var resto = new RestorationDruid();
             var feral = new Feral();
             var guardian = new Guardian();
-            // var resto = new RestorationDruid();
 
             // typhoon, maim, incap
             feral.Maim.Talent = 7;

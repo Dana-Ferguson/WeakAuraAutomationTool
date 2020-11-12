@@ -36,5 +36,7 @@
         public Spell UnleashedPower = new Spell("Unleashed Power", ClassType.DemonHunter, ClassSpec.Havoc, new[] { 206477 }, new[] { 0 }, 16, 1305151, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddPctModifier) });
         public Spell UnrestrainedFury = new Spell("Unrestrained Fury", ClassType.DemonHunter, ClassSpec.Havoc, new[] { 320770, 343006 }, new[] { 32, 43 }, 0, 132346, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModMaxPower) });
         public Spell VengefulRetreat = new Spell("Vengeful Retreat", ClassType.DemonHunter, ClassSpec.Havoc, new[] { 320635 }, new[] { 41 }, 0, 1348401, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
+
+        public Spell FuriousGaze = new Spell("FuriousGaze", ClassType.DemonHunter, ClassSpec.Havoc, 343311, 0, SpellType.BuffOnPlayer);
     }
 }

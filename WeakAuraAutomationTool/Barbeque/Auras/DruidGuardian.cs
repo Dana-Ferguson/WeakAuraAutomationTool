@@ -5,16 +5,15 @@ using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
 
-namespace WeakAuraAutomationTool.Barbeque.Classes
+namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal static class GuardianAuras
+    internal static class DruidGuardian
     {
         public static void Generate(WeakAura wa)
         {
             var guardian = new Guardian();
             var resto = new RestorationDruid();
 
-            guardian.BearForm.Invert = true;
             guardian.Typhoon.Talent = 7;
             guardian.Maim.Talent = 8;
             resto.UrsolsVortex.Talent = 9;
@@ -69,7 +68,7 @@ namespace WeakAuraAutomationTool.Barbeque.Classes
                 guardian.SurvivalInstincts.Buff().Passive(),
                 guardian.CatForm.Buff().Passive(),
                 guardian.MoonkinForm.Buff().Passive(),
-                guardian.BearForm.Buff().Passive()
+                guardian.BearForm.MissingBuff().Passive()
             ).Build(wa);
         }
     }

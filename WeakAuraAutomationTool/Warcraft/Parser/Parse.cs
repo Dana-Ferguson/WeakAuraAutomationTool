@@ -259,7 +259,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
                 }
 
                 // We're using ClassSpec.Spell to count as the base class
-                if (classSpecs.Count == 0) classSpecs.Add(ClassSpec.Spell);
+                if (classSpecs.Count == 0) classSpecs.Add(ClassSpec.Base);
                 foreach (var classSpec in classSpecs)
                 {
                     if (!Enum.IsDefined(typeof(ClassSpec), classSpec)) continue;
@@ -381,7 +381,7 @@ namespace WeakAuraAutomationTool.Warcraft.Parser
 
                     if (finalCode.Length != 0) finalCode.AppendLine($"    }}\n");
 
-                    finalCode.AppendLine(_classSpec == ClassSpec.Spell
+                    finalCode.AppendLine(_classSpec == ClassSpec.Base
                         ? $"    public class {_classType}"
                         : $"    public class {_classSpec} : {_classType}");
                     finalCode.AppendLine($"    {{");

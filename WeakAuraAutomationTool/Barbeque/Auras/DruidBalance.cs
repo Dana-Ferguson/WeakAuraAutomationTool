@@ -6,9 +6,9 @@ using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
 
-namespace WeakAuraAutomationTool.Barbeque.Classes
+namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal static class BalanceAuras
+    internal static class DruidBalance
     {
         public static void Generate(WeakAura wa)
         {
@@ -17,7 +17,6 @@ namespace WeakAuraAutomationTool.Barbeque.Classes
             var guardian = new Guardian();
             var resto = new RestorationDruid();
 
-            balance.MoonkinForm.Invert = true;
             feral.Maim.Talent = 7;
             guardian.IncapacitatingRoar.Talent = 8;
             resto.UrsolsVortex.Talent = 9;
@@ -78,7 +77,7 @@ namespace WeakAuraAutomationTool.Barbeque.Classes
                 // druid.SoulOfTheForest,
                 balance.Solstice.Buff().Passive()
             ).AddAlerts(
-                balance.MoonkinForm.Buff().Passive(),
+                balance.MoonkinForm.MissingBuff().Passive(),
                 balance.CatForm.Buff().Passive(),
                 balance.BearForm.Buff().Passive()
             ).Build(wa);

@@ -119,6 +119,13 @@ namespace WeakAuraAutomationTool.Warcraft
             return spell;
         }
 
+        public static Spell MissingBuff(this Spell spell)
+        {
+            spell.Type |= SpellType.BuffOnPlayer;
+            spell.Invert = true;
+            return spell;
+        }
+
         public static Spell DeBuff(this Spell spell)
         {
             spell.Type |= SpellType.DebuffOnTarget;

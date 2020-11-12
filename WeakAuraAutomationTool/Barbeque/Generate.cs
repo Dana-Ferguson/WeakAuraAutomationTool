@@ -4,7 +4,7 @@ using System.Net.Mail;
 using System.Text;
 
 using WeakAuraAutomationTool.Automation;
-using WeakAuraAutomationTool.Barbeque.Classes;
+using WeakAuraAutomationTool.Barbeque.Auras;
 using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
@@ -28,10 +28,10 @@ namespace WeakAuraAutomationTool.Barbeque
             // todo:
             // druid has spells currently suppressed
             // resto-druid: too many core CD's, too much on mobility bar
-            BalanceAuras.Generate(bbq);
-            FeralAuras.Generate(bbq);
-            GuardianAuras.Generate(bbq);
-            RestorationDruidAuras.Generate(bbq);
+            DruidBalance.Generate(bbq);
+            DruidFeral.Generate(bbq);
+            DruidGuardian.Generate(bbq);
+            DruidRestoration.Generate(bbq);
         }
     }
 }

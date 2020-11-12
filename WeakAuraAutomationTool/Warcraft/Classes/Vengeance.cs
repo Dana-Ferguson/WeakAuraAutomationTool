@@ -41,5 +41,8 @@
         public Spell ThickSkin = new Spell("Thick Skin", ClassType.DemonHunter, ClassSpec.Vengeance, new[] { 320380 }, new[] { 1 }, 0, 895888, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModAttackerMeleeCritChance), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModBaseResistancePct), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModExpertise), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModTotalStatPercentage) });
         public Spell ThrowGlaive = new Spell("Throw Glaive", ClassType.DemonHunter, ClassSpec.Vengeance, new[] { 204157, 320387 }, new[] { 10, 32 }, 0, 1305159, new double[] { 0 }, new double[] { }, false, 30, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier), new SpellEffectData(SpellEffectName.TriggerSpell, EffectAuraType.None) });
         public Spell VoidReaver = new Spell("Void Reaver", ClassType.DemonHunter, ClassSpec.Vengeance, new[] { 268175 }, new[] { 0 }, 16, 237561, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ProcTriggerSpell) });
+
+        // Debuff associated with SpiritBomb
+        public Spell Frailty = new Spell("Glide", ClassType.DemonHunter, ClassSpec.Vengeance, 224509, 9, SpellType.DebuffOnTarget);
     }
 }

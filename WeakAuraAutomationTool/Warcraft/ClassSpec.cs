@@ -2,7 +2,7 @@
 {
     public enum ClassSpec
     {
-        Spell = 0,
+        Base = 0,
 
         // ClassSets
         Mage = 3,

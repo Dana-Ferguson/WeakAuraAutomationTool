@@ -7,6 +7,15 @@ namespace WeakAuraAutomationTool.Barbeque
 {
     public static class Groups
     {
+        public static AuraGrid Overflow => new AuraGrid
+        {
+            Origin = new Point(0, -100),
+            Width = 8,
+            Height = 5,
+            InLine = Direction.Right,
+            NextLine = Direction.Down
+        };
+
         public static AuraGrid Utility => new AuraGrid
         {
             Origin = new Point(350, 250),

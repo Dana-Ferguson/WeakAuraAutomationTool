@@ -5,9 +5,9 @@ using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
 
-namespace WeakAuraAutomationTool.Barbeque.Classes
+namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal static class FeralAuras
+    internal static class DruidFeral
     {
         public static void Generate(WeakAura wa)
         {
@@ -15,7 +15,6 @@ namespace WeakAuraAutomationTool.Barbeque.Classes
             var guardian = new Guardian();
             var resto = new RestorationDruid();
 
-            feral.CatForm.Invert = true;
             feral.Typhoon.Talent = 7;
             guardian.IncapacitatingRoar.Talent = 8;
             resto.UrsolsVortex.Talent = 9;
@@ -65,7 +64,7 @@ namespace WeakAuraAutomationTool.Barbeque.Classes
                 feral.ScentOfBlood.Buff().BigStacks(),
                 feral.InfectedWounds.DeBuff().Passive()
             ).AddAlerts(
-                feral.CatForm.Buff().Passive(),
+                feral.CatForm.MissingBuff().Passive(),
                 feral.MoonkinForm.Buff().Passive(),
                 feral.BearForm.Buff().Passive()
             ).Build(wa);

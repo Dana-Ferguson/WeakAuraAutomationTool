@@ -21,6 +21,9 @@ namespace WeakAuraAutomationTool.Barbeque
         public readonly List<Spell> Mobility = new List<Spell>();
         public readonly List<Spell> Utility = new List<Spell>();
 
+        // this ia a band-aid
+        public readonly List<Spell> Overflow = new List<Spell>();
+
         public SpecBuilder(ClassSpec spec)
         {
             Spec = spec;
@@ -62,6 +65,12 @@ namespace WeakAuraAutomationTool.Barbeque
             return this;
         }
 
+        public SpecBuilder AddOverflow(params Spell[] spells)
+        {
+            Overflow.AddRange(spells);
+            return this;
+        }
+
         public void Build(WeakAura wa)
         {
             wa.ArrangeSpells(Groups.CoreRotation, Spec, CoreRotation);
@@ -76,6 +85,8 @@ namespace WeakAuraAutomationTool.Barbeque
                   .SetSize(80, 80)
                   .LoadInCombat();
             }
+
+            wa.ArrangeSpells(Groups.Overflow, Spec, Utility);
         }
     }
 }
