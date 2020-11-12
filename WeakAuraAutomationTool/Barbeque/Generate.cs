@@ -25,13 +25,22 @@ namespace WeakAuraAutomationTool.Barbeque
 
         private static void Build(WeakAura bbq)
         {
-            // todo:
-            // druid has spells currently suppressed
-            // resto-druid: too many core CD's, too much on mobility bar
+            // todo: Second pass on all specs
+            DeathKnightBlood.Generate(bbq);
+            DeathKnightFrost.Generate(bbq);
+            DeathKnightUnholy.Generate(bbq);
+
+            DemonHunterHavoc.Generate(bbq);
+            DemonHunterVengeance.Generate(bbq);
+
             DruidBalance.Generate(bbq);
             DruidFeral.Generate(bbq);
             DruidGuardian.Generate(bbq);
             DruidRestoration.Generate(bbq);
+
+            PriestDiscipline.Generate(bbq);
+            PriestHoly.Generate(bbq);
+            PriestShadow.Generate(bbq);
         }
     }
 }

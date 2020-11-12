@@ -35,5 +35,8 @@
         public Spell RunicAttenuation = new Spell("Runic Attenuation", ClassType.DeathKnight, ClassSpec.Frost, new[] { 207104 }, new[] { 0 }, 4, 1323035, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ProcTriggerSpell) });
         public Spell RunicEmpowerment = new Spell("Runic Empowerment", ClassType.DeathKnight, ClassSpec.Frost, new[] { 81229 }, new[] { 21 }, 0, 134423, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
         public Spell WraithWalk = new Spell("Wraith Walk", ClassType.DeathKnight, ClassSpec.Frost, new[] { 212552 }, new[] { 25 }, 14, 1100041, new double[] { 0 }, new double[] { 4 }, false, 0, new[] { "uncategorized" }, new[] { new SpellEffectData((SpellEffectName)0, EffectAuraType.None), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Hover), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModDamagePercentTaken), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModDetectRange), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModIncreaseSpeed), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModMinimumSpeed), new SpellEffectData(SpellEffectName.TriggerSpell, EffectAuraType.None) });
+
+        public Spell GlacialAdvance = new Spell("Glacial Advance", ClassType.DeathKnight, ClassSpec.Frost, 194913, 18);
+        public Spell FrostFever = new Spell("Frost Fever", ClassType.DeathKnight, ClassSpec.Frost, 55095, 0, SpellType.DebuffOnTarget);
     }
 }

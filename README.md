@@ -11,7 +11,7 @@ Todo:
 - [ ] Trinkets
 - [ ] Covenant Abilities (class in CD group, signature in mobility group)
 - [ ] Resource HuD (exists, but not as output from this tool)
-- [ ] Verify that the Rotation + Cooldown groups won't collide
+- [ ] Groups + Max size --> Auto Overflow
 - [ ] Look at behavior for leveling characters
 - [ ] Author Info \ Wago Upload \ Link Here
 
@@ -23,20 +23,20 @@ Classes (1st Pass)
       - [ ] Look at adding Customizations in Options \ WA Configuration Panel
       - [ ] Show only when on CD (how does this interact with the position_by_talents_lua?)
   - [X] Feral
-  - [ ] Restro
-  - [ ] Guardian
+  - [X] Restro
+  - [X] Guardian
   - [ ] Druid Affinities
 - [ ] Warrior
 - [ ] Paladin
 - [ ] Hunter
 - [ ] Rogue
-- [ ] Priest
+- [X] Priest
 - [ ] Shaman
 - [ ] Mage
 - [ ] Warlock
 - [ ] Monk
-- [ ] Demon Hunter
-- [ ] Death Knight
+- [X] Demon Hunter
+- [X] Death Knight
 
 Encounters
 - [ ] Torghast

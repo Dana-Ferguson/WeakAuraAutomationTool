@@ -155,6 +155,12 @@ namespace WeakAuraAutomationTool.Warcraft
             return spell;
         }
 
+        public static Spell Stacks(this Spell spell, int stacks)
+        {
+            Console.WriteLine("Spell.Stacks extension method NYI");
+            return spell;
+        }
+
         public static Spell AssociateAura(this Spell spell, Spell aura)
         {
             spell.AssociatedAuras.Add(aura);
