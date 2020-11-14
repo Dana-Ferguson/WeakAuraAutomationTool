@@ -13,6 +13,8 @@ namespace WeakAuraAutomationTool.Automation.Positioning
         /// <summary>The placement of the next grid line in the grid, relative to the last grid line.</summary>
         public Direction NextLine = Direction.Down;
 
+        public int LuaId = 1;
+
         // public Point Location { get; private set; } = null;
         public Point Location { get; internal set; } = null;
         public int Position { get; private set; } = -1;
@@ -66,10 +68,10 @@ namespace WeakAuraAutomationTool.Automation.Positioning
         {
             return InLine switch
             {
-                Direction.Up => $"yOffset >= {Height * Size + DeltaY}",
+                Direction.Up => $"yOffset >= {Height * Size - DeltaY}",
                 Direction.Down => $"yOffset <= {-Height * Size - DeltaY}",
                 Direction.Left => $"xOffset <= {-Width * Size - DeltaX}",
-                Direction.Right => $"xOffset >= {Width * Size + DeltaX}",
+                Direction.Right => $"xOffset >= {Width * Size - DeltaX}",
                 _ => throw new ArgumentOutOfRangeException()
             };
         }

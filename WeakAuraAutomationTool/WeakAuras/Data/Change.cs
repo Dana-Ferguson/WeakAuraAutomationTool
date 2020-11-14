@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using NLua;
 using WeakAuraAutomationTool.LuaMachine;
 
@@ -45,7 +46,12 @@ namespace WeakAuraAutomationTool.WeakAuras.Data
                 }
             }
 
-            throw new Exception(nameof(Value));
+            if (value is int) return value;
+            if (value is long) return value;
+            if (value is double) return value;
+            if (value is string) return value;
+
+            throw new Exception($"{nameof(Value)} is {value.GetType()}");
         }
     }
 }

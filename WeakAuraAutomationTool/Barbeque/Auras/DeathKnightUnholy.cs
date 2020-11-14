@@ -10,7 +10,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
         {
             var unholy = new Unholy();
 
-            var builder = new SpecBuilder(ClassSpec.Frost);
+            var builder = new SpecBuilder(ClassSpec.Unholy);
 
             // todo: Army of the Dead tracker?
 
@@ -21,7 +21,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 unholy.SacrificialPact,
                 unholy.UnholyBlight.Buff(),
                 unholy.DeathPact.Buff()
-                // havoc.Torment,
+            // havoc.Torment,
             ).AddUtility(
                 // Cooldowns
                 unholy.Anti_MagicShell.Buff(),

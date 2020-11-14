@@ -13,7 +13,8 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 8,
             Height = 5,
             InLine = Direction.Right,
-            NextLine = Direction.Down
+            NextLine = Direction.Down,
+            LuaId = 1
         };
 
         public static AuraGrid Utility => new AuraGrid
@@ -22,7 +23,8 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 2,
             Height = 5,
             InLine = Direction.Down,
-            NextLine = Direction.Right
+            NextLine = Direction.Right,
+            LuaId = 6
         };
 
         public static AuraGrid CoreRotation => new AuraGrid
@@ -31,7 +33,8 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 2,
             Height = 5,
             InLine = Direction.Right,
-            NextLine = Direction.Down
+            NextLine = Direction.Down,
+            LuaId = 2
         };
 
         public static AuraGrid CoreCooldowns => new AuraGrid
@@ -40,7 +43,8 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 2,
             Height = 5,
             InLine = Direction.Left,
-            NextLine = Direction.Up
+            NextLine = Direction.Up,
+            LuaId = 3
         };
 
         public static AuraGrid Mobility => new AuraGrid
@@ -49,15 +53,18 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 5,
             Height = 5,
             InLine = Direction.Right,
-            NextLine = Direction.Down
+            NextLine = Direction.Down,
+            LuaId = 4
         };
+
         public static AuraGrid CombatBuffs => new AuraGrid
         {
             Origin = new Point(75, 290),
             Width = 5,
             Height = 5,
             InLine = Direction.Right,
-            NextLine = Direction.Up
+            NextLine = Direction.Up,
+            LuaId = 5
         };
 
         public static AuraGrid Alert => new AuraGrid
@@ -66,7 +73,8 @@ namespace WeakAuraAutomationTool.Barbeque
             Width = 1,
             Height = 1,
             InLine = Direction.Right,
-            NextLine = Direction.Down
+            NextLine = Direction.Down,
+            LuaId = 0
         };
     }
 }

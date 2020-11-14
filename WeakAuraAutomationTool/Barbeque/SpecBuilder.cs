@@ -73,20 +73,21 @@ namespace WeakAuraAutomationTool.Barbeque
 
         public void Build(WeakAura wa)
         {
-            wa.ArrangeSpells(Groups.CoreRotation, Spec, CoreRotation);
-            wa.ArrangeSpells(Groups.CoreCooldowns, Spec, CoreCooldowns);
-            wa.ArrangeSpells(Groups.CombatBuffs, Spec, CombatBuffs);
-            wa.ArrangeSpells(Groups.Mobility, Spec, Mobility);
-            wa.ArrangeSpells(Groups.Utility, Spec, Utility);
+            wa.ArrangeSpells2(Groups.CoreRotation, Spec, CoreRotation);
+            wa.ArrangeSpells2(Groups.CoreCooldowns, Spec, CoreCooldowns);
+            wa.ArrangeSpells2(Groups.CombatBuffs, Spec, CombatBuffs);
+            wa.ArrangeSpells2(Groups.Mobility, Spec, Mobility);
+            wa.ArrangeSpells2(Groups.Utility, Spec, Utility);
 
             foreach (var alert in Alerts)
             {
-                wa.AddSpell(alert, Spec, -125, 225)
-                  .SetSize(80, 80)
+                // -125, 225 -- 80, 80
+                wa.AddSpell(alert, Spec, -25, 325)
+                  .SetSize(64, 64)
                   .LoadInCombat();
             }
 
-            wa.ArrangeSpells(Groups.Overflow, Spec, Utility);
+            wa.ArrangeSpells2(Groups.Overflow, Spec, Overflow);
         }
     }
 }

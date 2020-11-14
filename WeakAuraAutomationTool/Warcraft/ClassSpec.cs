@@ -1,5 +1,52 @@
-﻿namespace WeakAuraAutomationTool.Warcraft
+﻿using System;
+
+namespace WeakAuraAutomationTool.Warcraft
 {
+    public static class ClassSpecExtensions
+    {
+        public static string ToAuraPrefix(this ClassSpec classSpec)
+        {
+            return classSpec switch
+            {
+                ClassSpec.FrostMage => "mage_frost",
+                ClassSpec.HolyPaladin => "paladin_holy",
+                ClassSpec.ProtectionPaladin => "paladin_protection",
+                ClassSpec.Retribution => "paladin_retribution",
+                ClassSpec.Arms => "warrior_arms",
+                ClassSpec.Fury => "warrior_fury",
+                ClassSpec.ProtectionWarrior => "warrior_protection",
+                ClassSpec.Balance => "druid_balance",
+                ClassSpec.Feral => "druid_feral",
+                ClassSpec.Guardian => "druid_guardian",
+                ClassSpec.RestorationDruid => "druid_restoration",
+                ClassSpec.Blood => "deathknight_blood",
+                ClassSpec.Frost => "deathknight_frost",
+                ClassSpec.Unholy => "deathknight_unholy",
+                ClassSpec.BeastMastery => "hunter_beastmastery",
+                ClassSpec.Marksmanship => "hunter_marksmanship",
+                ClassSpec.Survival => "hunter_survival",
+                ClassSpec.Discipline => "priest_discipline",
+                ClassSpec.HolyPriest => "priest_holy",
+                ClassSpec.Shadow => "priest_shadow",
+                ClassSpec.Assassination => "rogue_assassination",
+                ClassSpec.Outlaw => "rogue_outlaw",
+                ClassSpec.Subtlety => "rogue_subtlety",
+                ClassSpec.Elemental => "shaman_elemental",
+                ClassSpec.Enhancement => "shaman_enhancement",
+                ClassSpec.RestorationShaman => "shaman_restoration",
+                ClassSpec.Affliction => "warlock_affliction",
+                ClassSpec.Demonology => "warlock_demonology",
+                ClassSpec.Destruction => "warlock_destruction",
+                ClassSpec.Brewmaster => "monk_brewmaster",
+                ClassSpec.Windwalker => "monk_windwalker",
+                ClassSpec.Mistweaver => "monk_mistweaver",
+                ClassSpec.Havoc => "demonhunter_havoc",
+                ClassSpec.Vengeance => "demonhunter_vengeance",
+                _ => throw new ArgumentOutOfRangeException(nameof(classSpec), classSpec, null)
+            };
+        }
+    }
+
     public enum ClassSpec
     {
         Base = 0,

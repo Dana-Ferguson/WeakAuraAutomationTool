@@ -34,14 +34,6 @@ namespace WeakAuraAutomationTool.Warcraft
         public HashSet<string> Categories = new HashSet<string>();
         public List<SpellEffectData> Effects = new List<SpellEffectData>();
 
-        // OLD STUFF
-        [Obsolete] public readonly int Id;
-        [Obsolete] public readonly SpellSchool School;
-        [Obsolete] public readonly string Rank;
-        [Obsolete] public readonly ClassSpec[] ClassSpecs;
-
-        [Obsolete] public double Duration = 0;
-
         // Sort of building a style sheet type API ~ need to come back later for a second pass
         public SpellType Type = SpellType.Cooldown;
         // Contextual ~ clean these up? --- have a reset() mechanic? --- the classes aren't static?? Prob's fine!
@@ -52,18 +44,43 @@ namespace WeakAuraAutomationTool.Warcraft
         /// <summary>if SpellType is Buff*, this can override the default (which would be to look for itself) </summary>
         public readonly List<Spell> AssociatedAuras = new List<Spell>();
 
-        public Spell(string name, int id, int school, string rank, int level, int[] classSpec, int talent = 0)
-        {
-            Name = name;
-            Id = id;
-            Talent = talent;
+        private bool _clonedAtleastOnce = false;
 
-            School = (SpellSchool)school;
-            Rank = rank;
-            Level = level;
-            ClassSpecs = classSpec.Select(cs => (ClassSpec)cs).ToArray();
+        public Spell CloneOnce()
+        {
+            if (_clonedAtleastOnce) return this;
+            return new Spell(this) { _clonedAtleastOnce = true };
         }
 
+        // For Cloning
+        public Spell(Spell spell)
+        {
+            Name = spell.Name;
+            ClassType = spell.ClassType;
+            ClassSpec = spell.ClassSpec;
+            SpellIds.AddRange(spell.SpellIds);
+            Levels.AddRange(spell.Levels);
+            Talent = spell.Talent;
+            Icon = spell.Icon;
+
+            Cooldowns.AddRange(spell.Cooldowns);
+            Durations.AddRange(spell.Durations);
+
+            IsPvp = spell.IsPvp;
+            Range = spell.Range;
+
+            Categories = spell.Categories.ToHashSet();
+            Effects = spell.Effects.ToList();
+
+            Type = spell.Type;
+            Invert = spell.Invert;
+            BigStacks = spell.BigStacks;
+            UseIcon = spell.UseIcon;
+
+            AssociatedAuras.AddRange(spell.AssociatedAuras);
+        }
+
+        // From Code-gen
         public Spell(string name, ClassType classType, ClassSpec classSpec,
             int[] spellIds, int[] levels, int talent, int icon,
             double[] cooldowns, double[] durations, bool isPvp, double range,
@@ -92,7 +109,7 @@ namespace WeakAuraAutomationTool.Warcraft
             }
         }
 
-        // Minimal Variant
+        // Minimal Variant -- for humans seeking a low effort typing experience
         public Spell(string name, ClassType classType, ClassSpec classSpec,
             int spellId, int talent, SpellType spellType = SpellType.Cooldown)
         {
@@ -109,18 +126,21 @@ namespace WeakAuraAutomationTool.Warcraft
     {
         public static Spell DoT(this Spell spell)
         {
+            spell = spell.CloneOnce();
             spell.Type |= SpellType.DoT;
             return spell;
         }
 
         public static Spell Buff(this Spell spell)
         {
+            spell = spell.CloneOnce();
             spell.Type |= SpellType.BuffOnPlayer;
             return spell;
         }
 
         public static Spell MissingBuff(this Spell spell)
         {
+            spell = spell.CloneOnce();
             spell.Type |= SpellType.BuffOnPlayer;
             spell.Invert = true;
             return spell;
@@ -128,12 +148,14 @@ namespace WeakAuraAutomationTool.Warcraft
 
         public static Spell DeBuff(this Spell spell)
         {
+            spell = spell.CloneOnce();
             spell.Type |= SpellType.DebuffOnTarget;
             return spell;
         }
 
         public static Spell Passive(this Spell spell)
         {
+            spell = spell.CloneOnce();
             if (spell.Type.HasFlag(SpellType.Cooldown))
             {
                 spell.Type &= ~SpellType.Cooldown;
@@ -144,12 +166,14 @@ namespace WeakAuraAutomationTool.Warcraft
 
         public static Spell BigStacks(this Spell spell)
         {
+            spell = spell.CloneOnce();
             spell.BigStacks = true;
             return spell;
         }
 
         public static Spell UseIcon(this Spell spell, Spell icon)
         {
+            spell = spell.CloneOnce();
             spell.Icon = icon.Icon;
             spell.UseIcon = true;
             return spell;
@@ -157,12 +181,14 @@ namespace WeakAuraAutomationTool.Warcraft
 
         public static Spell Stacks(this Spell spell, int stacks)
         {
+            spell = spell.CloneOnce();
             Console.WriteLine("Spell.Stacks extension method NYI");
             return spell;
         }
 
         public static Spell AssociateAura(this Spell spell, Spell aura)
         {
+            spell = spell.CloneOnce();
             spell.AssociatedAuras.Add(aura);
             return spell;
         }

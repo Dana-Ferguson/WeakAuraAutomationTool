@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Mail;
-using System.Text;
-
-using WeakAuraAutomationTool.Automation;
+﻿using WeakAuraAutomationTool.Automation;
 using WeakAuraAutomationTool.Barbeque.Auras;
-using WeakAuraAutomationTool.Warcraft;
-using WeakAuraAutomationTool.Warcraft.Classes;
 using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque
@@ -25,22 +18,25 @@ namespace WeakAuraAutomationTool.Barbeque
 
         private static void Build(WeakAura bbq)
         {
-            // todo: Second pass on all specs
-            DeathKnightBlood.Generate(bbq);
-            DeathKnightFrost.Generate(bbq);
-            DeathKnightUnholy.Generate(bbq);
+            // todo: verify that all aura_id's are unique
+            // todo: Second pass on all specs0
+            //DeathKnightBlood.Generate(bbq);
+            //DeathKnightFrost.Generate(bbq);
+            //DeathKnightUnholy.Generate(bbq);
 
-            DemonHunterHavoc.Generate(bbq);
-            DemonHunterVengeance.Generate(bbq);
+            //DemonHunterHavoc.Generate(bbq);
+            //DemonHunterVengeance.Generate(bbq);
 
             DruidBalance.Generate(bbq);
             DruidFeral.Generate(bbq);
             DruidGuardian.Generate(bbq);
             DruidRestoration.Generate(bbq);
 
-            PriestDiscipline.Generate(bbq);
-            PriestHoly.Generate(bbq);
-            PriestShadow.Generate(bbq);
+            //PriestDiscipline.Generate(bbq);
+            //PriestHoly.Generate(bbq);
+            //PriestShadow.Generate(bbq);
+
+            bbq.AddPositioningScript();
         }
     }
 }

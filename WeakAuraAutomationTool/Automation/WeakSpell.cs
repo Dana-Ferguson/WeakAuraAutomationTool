@@ -37,10 +37,10 @@ namespace WeakAuraAutomationTool.Automation
                 notOnTarget.WatchForDebuffNotOnTarget(spell.Name, spell.SpellIds);
                 notOnTarget.AddGlow(new Color(1, 0.04, 0.3));
 
-                var refreshable = (int)Math.Floor(spell.Durations.Max() * 0.3);
+                var refreshable = spell.Durations.Count == 0 ? 0 : (int)Math.Floor(spell.Durations.Max() * 0.3);
                 if (refreshable < 1)
                 {
-                    Console.WriteLine($"WARN: {spell} refreshable very low: {refreshable};");
+                    Console.WriteLine($"WARN: {spell.Name} refreshable very low: {refreshable};");
                 }
 
                 var canRefresh = AuraIcon.Generate($"{auraId}_refreshable");
@@ -113,18 +113,29 @@ namespace WeakAuraAutomationTool.Automation
         {
             var sb = new StringBuilder();
 
-            sb.Append(classSpec.ToString());
+            var name = spell.Name
+                .Replace("-", "_")
+                .Replace("\'", "")
+                .Replace(":", "")
+                .Replace("!", "_")
+                .Replace(",", "")
+                .Replace(")", "")
+                .Replace("(", "")
+                .Replace(" ", "_");
+
+            sb.Append(classSpec.ToAuraPrefix());
             sb.Append('_');
-            sb.Append(spell.Name);
-            sb.Append('_');
-            sb.Append(spell.SpellIds.First());
+            sb.Append(name);
+            // sb.Append('_');
+            // sb.Append(spell.SpellIds.First());
 
             //if (spell.Type.HasFlag(SpellType.Cooldown)) sb.Append("_cd");
             //if (spell.Type.HasFlag(SpellType.DebuffOnTarget)) sb.Append("_debuff");
             //if (spell.Type.HasFlag(SpellType.BuffOnPlayer)) sb.Append("_buff");
             //if (spell.Type.HasFlag(SpellType.BuffOnTarget)) sb.Append("_tar");
-            if (spell.Type.HasFlag(SpellType.DoT)) sb.Append("_dot");
-            if (spell.Talent != 0) sb.Append("_t").Append(spell.Talent);
+
+            // if (spell.Type.HasFlag(SpellType.DoT)) sb.Append("_dot");
+            // if (spell.Talent != 0) sb.Append("_t").Append(spell.Talent);
 
             return sb.ToString().ToLowerInvariant();
         }

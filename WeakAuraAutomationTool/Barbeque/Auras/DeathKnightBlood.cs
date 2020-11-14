@@ -10,7 +10,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
         {
             var blood = new Blood();
 
-            var builder = new SpecBuilder(ClassSpec.Frost);
+            var builder = new SpecBuilder(ClassSpec.Blood);
 
             // todo: Death Strike heal tracker?
 
@@ -25,7 +25,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 blood.MarkOfBlood.DeBuff(),
                 // todo: will this detect a debuff on player?
                 blood.DeathPact.Buff()
-                // havoc.Torment,
+            // havoc.Torment,
             ).AddUtility(
                 // Cooldowns
                 blood.Anti_MagicShell.Buff(),

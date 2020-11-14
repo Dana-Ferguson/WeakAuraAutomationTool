@@ -17,7 +17,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             var builder = new SpecBuilder(ClassSpec.Shadow);
             // todo: MindVision Alert
 
-            builder.AddUtility(
+            builder.AddOverflow(
                 shadow.Dispersion.Buff(),
                 shadow.Silence.DeBuff(),
                 shadow.PsychicHorror.DeBuff(),
@@ -27,24 +27,25 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 shadow.MassDispel,
                 shadow.PsychicScream,
                 shadow.MindBomb.DeBuff()
+            ).AddUtility(
+                shadow.Shadowfiend.Buff(),
+                shadow.PowerInfusion.Buff(),
+                shadow.VampiricEmbrace.Buff(),
+                // todo: shadow.SearingNightmare,
+                shadow.ShadowCrash,
+                shadow.VoidTorrent,
+                shadow.SurrenderToMadness.Buff()
             ).AddCoreRotation(
                 shadow.VampiricTouch.DoT().Passive(),
                 shadow.ShadowWordPain.DoT().Passive(),
                 shadow.DevouringPlague.DoT().Passive(),
                 shadow.MindBlast.BigStacks(),
                 // todo: Associate with Death and Madness
-                shadow.ShadowWordDeath
-            ).AddCoreCooldowns(
                 // todo: will this become Void Bolt?
                 shadow.VoidEruption.Buff(),
-                shadow.Shadowfiend.Buff(),
-                shadow.PowerInfusion.Buff(),
-                shadow.VampiricEmbrace.Buff(),
-                // todo: shadow.SearingNightmare,
-                shadow.ShadowCrash,
                 shadow.Damnation,
-                shadow.VoidTorrent,
-                shadow.SurrenderToMadness.Buff()
+                shadow.ShadowWordDeath
+            ).AddCoreCooldowns(
             ).AddMobility(
                 shadow.PowerWordShield.AssociateAura(shadow.BodyAndSoul),
                 shadow.PurifyDisease,

@@ -45,6 +45,7 @@ Encounters
 
 Data
 - [X] Extract Data from Game
+  - [ ] I did good-ish work, but... I should have pulled from here: https://github.com/simulationcraft/simc/tree/shadowlands/SpellDataDump
 
 Options
 - [ ] Investigate how to add Options

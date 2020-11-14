@@ -33,5 +33,7 @@
         public Spell Stormkeeper = new Spell("Stormkeeper", ClassType.Shaman, ClassSpec.Elemental, new[] { 191634 }, new[] { 0 }, 20, 839977, new double[] { 0 }, new double[] { 15 }, false, 0, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddPctModifier) });
         public Spell Thunderstorm = new Spell("Thunderstorm", ClassType.Shaman, ClassSpec.Elemental, new[] { 51490 }, new[] { 49 }, 0, 237589, new double[] { 45 }, new double[] { 5 }, false, 0, new[] { "Thunderstorm" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModDecreaseSpeed), new SpellEffectData(SpellEffectName.KnockBack, EffectAuraType.None), new SpellEffectData(SpellEffectName.SchoolDamage, EffectAuraType.None) });
         public Spell UnlimitedPower = new Spell("Unlimited Power", ClassType.Shaman, ClassSpec.Elemental, new[] { 260895 }, new[] { 1 }, 19, 643246, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
+
+        public Spell SurgeOfPower = new Spell("Surge of Power", ClassType.Shaman, ClassSpec.Elemental, 262303, 16);
     }
 }

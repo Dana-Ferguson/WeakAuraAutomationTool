@@ -30,7 +30,8 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             var builder = new SpecBuilder(spec);
 
             // todo: should this be a standard?
-            wa.AddSpell(balance.StellarFlare, spec, -25, 300);
+            // wa.AddSpell(balance.StellarFlare, spec, -25, 300);
+            wa.AddSpell(balance.StellarFlare, spec, -100, 225);
 
             builder.AddUtility(
                 balance.Barkskin.Buff(),

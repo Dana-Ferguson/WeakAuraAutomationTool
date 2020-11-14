@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using NLua;
-
-using WeakAuraAutomationTool.Automation;
-using WeakAuraAutomationTool.Automation.Positioning;
-using WeakAuraAutomationTool.Barbeque;
-using WeakAuraAutomationTool.Classes;
+﻿using NLua;
 using WeakAuraAutomationTool.LuaMachine;
-using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.WeakAuras.Utility;
 
 namespace WeakAuraAutomationTool.WeakAuras

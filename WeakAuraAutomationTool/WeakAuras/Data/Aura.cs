@@ -95,5 +95,8 @@ namespace WeakAuraAutomationTool.WeakAuras.Data
         [LuaField("xOffset")] public double XOffset;
         [LuaField("yOffset")] public double YOffset;
         [LuaField("zoom")] public double Zoom;
+
+        [LuaField("displayIcon")] public double DisplayIcon;
+        [LuaField("iconSource")] public long IconSource;
     }
 }

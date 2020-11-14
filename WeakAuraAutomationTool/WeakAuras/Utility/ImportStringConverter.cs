@@ -12,7 +12,7 @@ namespace WeakAuraAutomationTool.WeakAuras.Utility
             lua["inString"] = wa;
 
             // https://github.com/WeakAuras/WeakAuras2/blob/master/WeakAuras/Transmission.lua#L694
-            var stringToTable = System.IO.File.ReadAllText("StringToTable.lua");
+            var stringToTable = System.IO.File.ReadAllText("Lua/StringToTable.lua");
             var decompressed = lua.DoString(stringToTable)[0];
 
             if (!(decompressed is LuaTable table))

@@ -42,7 +42,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 guardian.HeartOfTheWild.Buff()
             ).AddCoreRotation(
                 guardian.Moonfire.DoT().Passive().AssociateAura(guardian.GalacticGuardian),
-                guardian.Thrash.DoT().Passive(),
+                guardian.Thrash.DeBuff(),
                 guardian.Mangle.Buff().AssociateAura(guardian.Gore),
                 guardian.Maul
             ).AddCoreCooldowns(
