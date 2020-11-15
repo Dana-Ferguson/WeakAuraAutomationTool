@@ -35,6 +35,10 @@ The sceenshot also shows a bug ~ the IronFur Active Buff is not in the right spo
 [PositionAuras.lua](WeakAuraAutomationTool/Lua/PositionAuras.lua) is the first real piece of Lua I've ever written ~ it's a WiP.
 Positions are recalculated when you change specs and talents.
 
+Also, from that picture, I already know I'm gonna turn down the 'glow'. With this tool, I don't need to figure
+out how to do that right now before I copy and paste more Auras around. I can do that after the fact and mass apply it to
+all the auras. That style of dev-loop is what this tool is being built for.
+
 Goals:
 * the auras for each spec should feel like they're following a similar pattern
 * do not automate the player by telling them which ability to hit next
