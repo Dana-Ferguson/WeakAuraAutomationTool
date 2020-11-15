@@ -8,7 +8,7 @@ using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal class DemonHunterVengeance
+    internal static class DemonHunterVengeance
     {
         public static void Generate(WeakAura wa)
         {

@@ -4,7 +4,7 @@ using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal class RogueOutlaw
+    internal static class RogueOutlaw
     {
         public static void Generate(WeakAura wa)
         {

@@ -8,7 +8,7 @@ using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal class DeathKnightFrost
+    internal static class DeathKnightFrost
     {
         public static void Generate(WeakAura wa)
         {

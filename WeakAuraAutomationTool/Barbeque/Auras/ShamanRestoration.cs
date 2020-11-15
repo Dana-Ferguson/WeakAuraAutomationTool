@@ -4,7 +4,7 @@ using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque.Auras
 {
-    internal class ShamanRestoration
+    internal static class ShamanRestoration
     {
         public static void Generate(WeakAura wa)
         {
