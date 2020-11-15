@@ -29,5 +29,8 @@
         public Spell Vendetta = new Spell("Vendetta", ClassType.Rogue, ClassSpec.Assassination, new[] { 79140 }, new[] { 42 }, 0, 458726, new double[] { 0 }, new double[] { 20 }, false, 30, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModMeleeDamageFromCaster), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModSpellDamageFromCaster), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModStalked), new SpellEffectData(SpellEffectName.TriggerSpell, EffectAuraType.None) });
         public Spell VenomousWounds = new Spell("Venomous Wounds", ClassType.Rogue, ClassSpec.Assassination, new[] { 79134 }, new[] { 37 }, 0, 458736, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
         public Spell WoundPoison = new Spell("Wound Poison", ClassType.Rogue, ClassSpec.Assassination, new[] { 319066 }, new[] { 44 }, 0, 134197, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier) });
+
+        // Internal Bleeding - Internal Bleeding 154953
+        public Spell InternalBleeding = new Spell("Internal Bleeding", ClassType.Rogue, ClassSpec.Assassination, 154953, 13);
     }
 }

@@ -26,7 +26,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 // todo: will this detect a debuff on player?
                 blood.DeathPact.Buff()
             // havoc.Torment,
-            ).AddUtility(
+            ).AddRightBar(
                 // Cooldowns
                 blood.Anti_MagicShell.Buff(),
                 blood.Anti_MagicZone.Buff(),
@@ -45,14 +45,14 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 blood.Blooddrinker.Buff(),
                 blood.Tombstone.Buff(),
                 blood.Bonestorm.Buff()
-            ).AddMobility(
+            ).AddBottomBar(
                 blood.DeathGrip,
                 blood.GorefiendsGrasp,
                 blood.DeathsAdvance.Buff(),
                 blood.WraithWalk.Buff(),
                 blood.MindFreeze.DeBuff(),
                 blood.Asphyxiate.DeBuff()
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 blood.ControlUndead.Passive().Buff(),
                 blood.BloodPlague.Passive().DeBuff(),
                 blood.Bloodworms.Passive().Buff().BigStacks()

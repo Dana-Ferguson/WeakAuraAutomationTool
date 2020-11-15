@@ -18,7 +18,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 enhancement.Heroism.Buff(),
                 enhancement.Hex.DeBuff(),
                 enhancement.EarthShield
-            ).AddUtility(
+            ).AddRightBar(
                 enhancement.Ascendance.Buff(), // T7
                 enhancement.EarthenSpike.DeBuff(), // T7
                 enhancement.Stormkeeper.Buff(), // T6
@@ -35,7 +35,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 enhancement.FireNova.Buff(), // T4
                 enhancement.CrashLightning
             ).AddCoreCooldowns(
-            ).AddMobility(
+            ).AddBottomBar(
                 enhancement.FeralLunge, // T5
                 enhancement.EarthbindTotem.Buff(),
                 enhancement.CapacitorTotem.Buff(),
@@ -44,7 +44,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 enhancement.WindShear,
                 enhancement.Purge,
                 enhancement.CleanseSpirit
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 enhancement.FrostShock.Passive().Buff(),
                 enhancement.MaelstromWeapon.Passive().Buff(),
                 enhancement.Stormbringer.Passive().Buff(),

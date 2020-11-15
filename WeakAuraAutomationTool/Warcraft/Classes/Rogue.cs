@@ -71,5 +71,8 @@
         public Spell Vanish = new Spell("Vanish", ClassType.Rogue, ClassSpec.Base, new[] { 1856, 11327, 115193, 248775, 248776 }, new[] { 1, 15, 21, 23 }, 0, 132331, new double[] { 120 }, new double[] { 3 }, false, 20, new[] { "Shapeshift", "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddPctModifier), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModSpeedAlways), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModStealth), new SpellEffectData(SpellEffectName.Energize, EffectAuraType.None), new SpellEffectData(SpellEffectName.ForceDeselect, EffectAuraType.None), new SpellEffectData(SpellEffectName.Sanctuary2, EffectAuraType.None), new SpellEffectData(SpellEffectName.TriggerSpell, EffectAuraType.None) });
         public Spell Vigor = new Spell("Vigor", ClassType.Rogue, ClassSpec.Base, new[] { 14983 }, new[] { 0 }, 7, 458737, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModIncreaseEnergy), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModPowerRegenPercent) });
         public Spell WoundPoison = new Spell("Wound Poison", ClassType.Rogue, ClassSpec.Base, new[] { 8679 }, new[] { 38 }, 0, 134197, new double[] { }, new double[] { 3600 }, false, 0, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ProcTriggerSpell) });
+
+        // Also an assassination ability (additional rank)
+        public Spell SliceAndDice = new Spell("Slice and Dice", ClassType.Rogue, ClassSpec.Base, 5171, 0);
     }
 }

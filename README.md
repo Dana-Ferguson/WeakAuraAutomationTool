@@ -20,7 +20,7 @@ Classes (1st Pass)
 - [ ] Warrior
 - [ ] Paladin
 - [ ] Hunter
-- [ ] Rogue
+- [X] Rogue
 - [X] Priest
 - [X] Shaman
 - [ ] Mage

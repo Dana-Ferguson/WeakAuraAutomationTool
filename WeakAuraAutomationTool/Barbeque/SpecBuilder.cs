@@ -47,19 +47,19 @@ namespace WeakAuraAutomationTool.Barbeque
             return this;
         }
 
-        public SpecBuilder AddCombatBuffs(params Spell[] spells)
+        public SpecBuilder AddTopBar(params Spell[] spells)
         {
             CombatBuffs.AddRange(spells);
             return this;
         }
 
-        public SpecBuilder AddMobility(params Spell[] spells)
+        public SpecBuilder AddBottomBar(params Spell[] spells)
         {
             Mobility.AddRange(spells);
             return this;
         }
 
-        public SpecBuilder AddUtility(params Spell[] spells)
+        public SpecBuilder AddRightBar(params Spell[] spells)
         {
             Utility.AddRange(spells);
             return this;

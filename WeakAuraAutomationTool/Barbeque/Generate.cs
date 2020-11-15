@@ -1,5 +1,6 @@
 ﻿using WeakAuraAutomationTool.Automation;
 using WeakAuraAutomationTool.Barbeque.Auras;
+using WeakAuraAutomationTool.Warcraft;
 using WeakAuraAutomationTool.WeakAuras;
 
 namespace WeakAuraAutomationTool.Barbeque
@@ -35,6 +36,10 @@ namespace WeakAuraAutomationTool.Barbeque
             PriestDiscipline.Generate(bbq);
             PriestHoly.Generate(bbq);
             PriestShadow.Generate(bbq);
+
+            RogueAssassination.Generate(bbq);
+            RogueOutlaw.Generate(bbq);
+            RogueSubtlety.Generate(bbq);
 
             ShamanElemental.Generate(bbq);
             ShamanEnhancement.Generate(bbq);

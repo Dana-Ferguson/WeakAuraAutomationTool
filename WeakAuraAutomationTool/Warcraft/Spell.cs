@@ -124,6 +124,12 @@ namespace WeakAuraAutomationTool.Warcraft
 
     public static class SpellExtensions
     {
+        public static Spell RequiresStealth(this Spell spell)
+        {
+            Console.WriteLine("Requires Stealth NYI");
+            return spell;
+        }
+
         public static Spell DoT(this Spell spell)
         {
             spell = spell.CloneOnce();

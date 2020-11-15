@@ -30,7 +30,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 frost.DeathPact.Buff(),
                 frost.Permafrost.Passive().Buff()
             // havoc.Torment,
-            ).AddUtility(
+            ).AddRightBar(
                 frost.Anti_MagicShell.Buff(),
                 frost.Anti_MagicZone.Buff(),
                 frost.IceboundFortitude.Buff(),
@@ -46,13 +46,13 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 frost.EmpowerRuneWeapon.Buff(),
                 frost.FrostwyrmsFury.DeBuff(),
                 frost.RemorselessWinter.Buff()
-            ).AddMobility(
+            ).AddBottomBar(
                 frost.DeathGrip,
                 frost.DeathsAdvance.Buff(),
                 frost.WraithWalk.Buff(),
                 frost.MindFreeze.DeBuff(),
                 frost.Asphyxiate.DeBuff()
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 // todo: add FrostFever?
                 frost.ControlUndead.Passive().Buff(),
                 frost.DarkSuccor.Buff().Passive().UseIcon(frost.DeathStrike),

@@ -23,7 +23,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 // todo: not_on_CD --> back to combat buffs?
                 havoc.ThrowGlaive
             // havoc.Torment,
-            ).AddUtility(
+            ).AddRightBar(
                 // Cooldowns
                 havoc.ChaosNova.DeBuff(),
                 havoc.Darkness.Buff(),
@@ -40,7 +40,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 havoc.EssenceBreak.DeBuff(),
                 havoc.FelEruption.DeBuff(),
                 havoc.FelBarrage.Buff()
-            ).AddMobility(
+            ).AddBottomBar(
                 havoc.FelRush,
                 havoc.VengefulRetreat,
                 havoc.Felblade,
@@ -48,7 +48,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 havoc.Disrupt,
                 // todo: check target for magic
                 havoc.ConsumeMagic
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 havoc.SoulFragments.Passive().Buff()
             // vengeance.ChaosBrand.Passive().B
             ).AddAlerts(

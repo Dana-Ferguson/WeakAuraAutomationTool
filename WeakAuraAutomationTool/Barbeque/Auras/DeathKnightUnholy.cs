@@ -22,7 +22,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 unholy.UnholyBlight.Buff(),
                 unholy.DeathPact.Buff()
             // havoc.Torment,
-            ).AddUtility(
+            ).AddRightBar(
                 // Cooldowns
                 unholy.Anti_MagicShell.Buff(),
                 unholy.Anti_MagicZone.Buff(),
@@ -43,13 +43,13 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 unholy.UnholyAssault.Buff(),
                 // todo: likely not a buff, but we should be able to track this pet
                 unholy.SummonGargoyle.Buff()
-            ).AddMobility(
+            ).AddBottomBar(
                 unholy.DeathGrip,
                 unholy.DeathsAdvance.Buff(),
                 unholy.WraithWalk.Buff(),
                 unholy.MindFreeze.DeBuff(),
                 unholy.Asphyxiate.DeBuff()
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 unholy.ControlUndead.Passive().Buff(),
                 unholy.DarkSuccor.Buff().Passive().UseIcon(unholy.DeathStrike),
                 unholy.RunicCorruption.Buff().Passive(),

@@ -23,7 +23,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             var spec = ClassSpec.RestorationDruid;
             var builder = new SpecBuilder(spec);
 
-            builder.AddUtility(
+            builder.AddRightBar(
                 resto.Barkskin.Buff(),
                 resto.Renewal,
                 resto.Innervate,
@@ -54,14 +54,14 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 resto.CenarionWard,
                 resto.Flourish,
                 resto.Overgrowth
-            ).AddMobility(
+            ).AddBottomBar(
                 resto.Dash.Buff(),
                 resto.WildCharge,
                 resto.StampedingRoar.Buff(),
                 resto.NaturesSwiftness,
                 resto.Ironbark,
                 resto.NaturesCure
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 resto.OmenOfClarity.Buff().Passive().BigStacks(),
                 resto.Abundance.Buff().Passive().BigStacks(),
                 resto.SoulOfTheForest.Buff().Passive()

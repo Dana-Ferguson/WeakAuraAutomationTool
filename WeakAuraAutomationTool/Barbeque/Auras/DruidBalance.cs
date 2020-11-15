@@ -33,7 +33,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             // wa.AddSpell(balance.StellarFlare, spec, -25, 300);
             wa.AddSpell(balance.StellarFlare, spec, -100, 225);
 
-            builder.AddUtility(
+            builder.AddRightBar(
                 balance.Barkskin.Buff(),
                 balance.Renewal,
                 balance.Innervate,
@@ -66,12 +66,12 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 balance.ForceOfNature,
                 balance.FuryOfElune.Buff(),
                 balance.NewMoon
-            ).AddMobility(
+            ).AddBottomBar(
                 balance.Dash.Buff(),
                 // druid.TigerDash,
                 balance.WildCharge,
                 balance.StampedingRoar.Buff()
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 balance.Starlord.Buff().Passive(),
                 balance.Starfall.Buff().Passive(),
                 balance.Starsurge.Buff().Passive(),

@@ -24,7 +24,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 vengeance.ThrowGlaive,
                 vengeance.Torment,
                 vengeance.LastResort.Passive().Buff()
-            ).AddUtility(
+            ).AddRightBar(
                 // Cooldowns
                 vengeance.SigilOfFlame,
                 vengeance.SigilOfChains,
@@ -40,13 +40,13 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 vengeance.FieryBrand.DeBuff().AssociateAura(vengeance.RevelInPain),
                 vengeance.BulkExtraction,
                 vengeance.SoulBarrier.Buff()
-            ).AddMobility(
+            ).AddBottomBar(
                 vengeance.InfernalStrike,
                 vengeance.Felblade,
                 vengeance.Disrupt,
                 // todo: check target for magic
                 vengeance.ConsumeMagic
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 vengeance.SoulFragments.Passive().Buff()
             // vengeance.ChaosBrand.Passive().B
             ).AddAlerts(

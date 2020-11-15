@@ -20,7 +20,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
 
             var builder = new SpecBuilder(ClassSpec.Guardian);
 
-            builder.AddUtility(
+            builder.AddRightBar(
                 guardian.SurvivalInstincts.Buff().BigStacks(),
                 guardian.Barkskin.Buff(),
                 guardian.IncapacitatingRoar.DeBuff(),
@@ -52,12 +52,12 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 guardian.Pulverize.DeBuff(),
                 guardian.BristlingFur.Buff()
             // Incarnation,
-            ).AddMobility(
+            ).AddBottomBar(
                 guardian.Dash.Buff(),
                 guardian.WildCharge,
                 guardian.StampedingRoar.Buff(),
                 guardian.SkullBash
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 guardian.Ironfur.Buff().Passive(),
                 guardian.InfectedWounds.DeBuff().Passive(),
                 guardian.ToothAndClaw.Passive().DeBuff().BigStacks(),

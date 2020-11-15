@@ -27,7 +27,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 elemental.CleanseSpirit,
                 // or debuff?
                 elemental.NaturesGuardian.Buff() // T5
-            ).AddUtility(
+            ).AddRightBar(
                 elemental.Thunderstorm.DeBuff(),
                 elemental.SpiritwalkersGrace.Buff(),
                 elemental.WindRushTotem.Buff(), // T5
@@ -45,14 +45,14 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 elemental.LiquidMagmaTotem.Buff(), // T4
                 elemental.Stormkeeper.Buff(), // T7
                 elemental.Ascendance.Buff() // T7
-            ).AddMobility(
+            ).AddBottomBar(
                 elemental.EarthbindTotem.Buff(),
                 elemental.CapacitorTotem.Buff(),
                 elemental.HealingStreamTotem.Buff(),
                 elemental.TremorTotem.Buff(),
                 elemental.WindShear,
                 elemental.Purge
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 elemental.FrostShock.Passive().Buff(),
                 elemental.SurgeOfPower.Passive().Buff(), // T6
                 elemental.UnlimitedPower.Passive().Buff()

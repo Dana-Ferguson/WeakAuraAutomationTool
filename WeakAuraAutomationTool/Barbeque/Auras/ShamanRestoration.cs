@@ -19,7 +19,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 restoration.Hex.DeBuff(),
                 restoration.LavaBurst,
                 restoration.EarthgrabTotem
-            ).AddUtility(
+            ).AddRightBar(
                 restoration.HealingTideTotem.Buff(),
                 restoration.ManaTideTotem.Buff(),
                 restoration.SpiritLinkTotem.Buff(),
@@ -39,7 +39,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             ).AddCoreCooldowns(
                 restoration.EarthenWallTotem.Buff(), // T4
                 restoration.AncestralProtectionTotem.Buff() // T4
-            ).AddMobility(
+            ).AddBottomBar(
                 restoration.EarthbindTotem.Buff(),
                 restoration.CapacitorTotem.Buff(),
                 restoration.HealingStreamTotem.Buff(),
@@ -47,7 +47,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 restoration.WindShear,
                 restoration.Purge,
                 restoration.PurifySpirit
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 restoration.FrostShock.Passive().Buff(),
                 // todo: will this only show up when it's been used? (also enhancement)
                 restoration.NaturesGuardian.Passive().Buff(),

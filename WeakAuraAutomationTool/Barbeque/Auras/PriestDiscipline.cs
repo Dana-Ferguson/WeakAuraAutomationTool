@@ -28,7 +28,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 // How many hit by scream?
                 discipline.PsychicScream,
                 discipline.ShiningForce.DeBuff()
-            ).AddUtility(
+            ).AddRightBar(
                 // Cooldowns
                 discipline.PowerWordBarrier.Buff(),
                 discipline.Shadowfiend.Buff(),
@@ -50,11 +50,11 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 discipline.Halo,
                 discipline.DivineStar
             ).AddCoreCooldowns(
-            ).AddMobility(
+            ).AddBottomBar(
                 // discipline.PowerWordShield.AssociateAura(discipline.BodyAndSoul),
                 discipline.Purify,
                 discipline.DispelMagic
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 // Weakened Soul on Target? (Tracker for Group?)
                 discipline.Levitate.Buff().Passive(),
                 discipline.ShackleUndead.Passive().DeBuff(),

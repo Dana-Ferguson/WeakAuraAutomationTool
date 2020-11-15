@@ -27,7 +27,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 shadow.MassDispel,
                 shadow.PsychicScream,
                 shadow.MindBomb.DeBuff()
-            ).AddUtility(
+            ).AddRightBar(
                 shadow.Shadowfiend.Buff(),
                 shadow.PowerInfusion.Buff(),
                 shadow.VampiricEmbrace.Buff(),
@@ -46,11 +46,11 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 shadow.Damnation,
                 shadow.ShadowWordDeath
             ).AddCoreCooldowns(
-            ).AddMobility(
+            ).AddBottomBar(
                 shadow.PowerWordShield.AssociateAura(shadow.BodyAndSoul),
                 shadow.PurifyDisease,
                 shadow.DispelMagic
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 shadow.AncientMadness.Buff().Passive(),
                 shadow.Voidform.Buff().Passive(),
                 shadow.Levitate.Buff().Passive(),

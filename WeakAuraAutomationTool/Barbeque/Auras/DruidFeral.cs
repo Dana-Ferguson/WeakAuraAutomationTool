@@ -22,7 +22,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             // todo: Lunar Inspiration
             var builder = new SpecBuilder(ClassSpec.Feral);
 
-            builder.AddUtility(
+            builder.AddRightBar(
                 feral.Barkskin.Buff(),
                 feral.Renewal,
                 feral.Typhoon,
@@ -50,13 +50,13 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 feral.BrutalSlash.BigStacks(),
                 feral.FeralFrenzy.DeBuff()
             // Incarnation,
-            ).AddMobility(
+            ).AddBottomBar(
                 feral.Dash.Buff(),
                 // boomkin.TigerDash,
                 feral.WildCharge,
                 feral.StampedingRoar.Buff(),
                 guardian.SkullBash
-            ).AddCombatBuffs(
+            ).AddTopBar(
                 feral.PredatorySwiftness.Passive(),
                 feral.OmenOfClarity.Passive().BigStacks().Buff(),
                 feral.Bloodtalons.Passive().Buff(),
