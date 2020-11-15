@@ -23,9 +23,10 @@ namespace WeakAuraAutomationTool
             Console.WriteLine("Generating WeakAura!");
             var sw = Stopwatch.StartNew();
 
-            UnpackTest();
+            // UnpackTest();
 
-            // BarbequeParty();
+            BarbequeParty();
+
             // Code in Warcraft\Parser\Data.cs
             // Warcraft.Parser.Parse.ProduceCodeFromCsv();
             // Code in Warcraft\Classes.cs

@@ -16,6 +16,8 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
 
             var builder = new SpecBuilder(ClassSpec.Elemental);
 
+            Console.WriteLine("Pets and totems!");
+
             // Lightning Shield, Flametongue Weapon?
             builder.AddOverflow(
                 elemental.EarthElemental.Buff(),
@@ -54,75 +56,10 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 elemental.FrostShock.Passive().Buff(),
                 elemental.SurgeOfPower.Passive().Buff(), // T6
                 elemental.UnlimitedPower.Passive().Buff()
-            // vengeance.ChaosBrand.Passive().B
             ).AddAlerts(
                 elemental.WaterWalking.Passive().Buff(),
                 // todo: any reason not to have Lightning Shield!?
                 elemental.LightningShield.Passive().MissingBuff()
-            ).Build(wa);
-        }
-    }
-
-    internal class ShamanRestoration
-    {
-        public static void Generate(WeakAura wa)
-        {
-            var elemental = new Elemental();
-
-            var builder = new SpecBuilder(ClassSpec.RestorationShaman);
-
-            builder.AddOverflow(
-                elemental.EarthElemental.Buff(),
-                elemental.AstralShift.Buff(),
-                elemental.Heroism.Buff(),
-                elemental.Hex.DeBuff()
-            ).AddUtility(
-            ).AddCoreRotation(
-            ).AddCoreCooldowns(
-            ).AddMobility(
-                elemental.EarthbindTotem.Buff(),
-                elemental.CapacitorTotem.Buff(),
-                elemental.HealingStreamTotem.Buff(),
-                elemental.TremorTotem.Buff(),
-                elemental.WindShear,
-                elemental.Purge
-            ).AddCombatBuffs(
-                elemental.FrostShock.Passive().Buff()
-            // vengeance.ChaosBrand.Passive().B
-            ).AddAlerts(
-                elemental.WaterWalking.Passive().Buff()
-            ).Build(wa);
-        }
-    }
-
-    internal class ShamanEnhancement
-    {
-        public static void Generate(WeakAura wa)
-        {
-            var elemental = new Elemental();
-
-            var builder = new SpecBuilder(ClassSpec.Enhancement);
-
-            builder.AddOverflow(
-                elemental.EarthElemental.Buff(),
-                elemental.AstralShift.Buff(),
-                elemental.Heroism.Buff(),
-                elemental.Hex.DeBuff()
-            ).AddUtility(
-            ).AddCoreRotation(
-            ).AddCoreCooldowns(
-            ).AddMobility(
-                elemental.EarthbindTotem.Buff(),
-                elemental.CapacitorTotem.Buff(),
-                elemental.HealingStreamTotem.Buff(),
-                elemental.TremorTotem.Buff(),
-                elemental.WindShear,
-                elemental.Purge
-            ).AddCombatBuffs(
-                elemental.FrostShock.Passive().Buff()
-            // vengeance.ChaosBrand.Passive().B
-            ).AddAlerts(
-                elemental.WaterWalking.Passive().Buff()
             ).Build(wa);
         }
     }

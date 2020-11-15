@@ -152,7 +152,7 @@
   })
 
   local bottom = Grid:create({
-    x=2, y=0, w=5, h=5, id=4, inLine=direction.right, nextLine=direction.down, limit = 10
+    x=2, y=0, w=5, h=5, id=4, inLine=direction.right, nextLine=direction.down, limit = 5
   })
 
   local top = Grid:create({
@@ -173,11 +173,11 @@
 
     -- the core grids grow towards each other
     if (self.id == coreRotation.id or self.id == coreCooldowns.id) then
-      if (coreRotation.p + coreCooldowns.p > coreRotation.limit) then return true end
+      if (coreRotation.p + coreCooldowns.p >= coreRotation.limit) then return true end
       return false
     end
 
-    if (self.p > self.limit) then return true end
+    if (self.p >= self.limit) then return true end
 
     return false;
   end
@@ -199,8 +199,8 @@
     end
   end
 
-  print('Auras positioned! CoreRotation:', coreRotation.p,
-    ', CoreCDs:', coreCooldowns.p,
+  print('Auras positioned! Core:', coreRotation.p,
+    ', CDs:', coreCooldowns.p,
     ', Right:', right.p,
     ', Bottom:', bottom.p,
     ', Top:', top.p,

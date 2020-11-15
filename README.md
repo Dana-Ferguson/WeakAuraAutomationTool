@@ -16,27 +16,27 @@ Todo:
 - [ ] Author Info \ Wago Upload \ Link Here
 
 Classes (1st Pass)
-- [ ] Druid
-  - [X] Balance
-    - [ ] Eclipse Graphic (requires model support)
-    - [ ] There are too many things being tracked
-      - [ ] Look at adding Customizations in Options \ WA Configuration Panel
-      - [ ] Show only when on CD (how does this interact with the position_by_talents_lua?)
-  - [X] Feral
-  - [X] Restro
-  - [X] Guardian
-  - [ ] Druid Affinities
+- [X] Druid
 - [ ] Warrior
 - [ ] Paladin
 - [ ] Hunter
 - [ ] Rogue
 - [X] Priest
-- [ ] Shaman
+- [X] Shaman
 - [ ] Mage
 - [ ] Warlock
 - [ ] Monk
 - [X] Demon Hunter
 - [X] Death Knight
+
+Classes (2nd Pass)
+- [ ] Druid
+  - [ ] Druid Affinities
+  - [ ] Eclipse Graphic (requires model support)
+  - [ ] There are too many things being tracked
+    - [ ] Look at adding Customizations in Options \ WA Configuration Panel
+    - [ ] Show only when on CD (how does this interact with the position_by_talents_lua?)
+
 
 Encounters
 - [ ] Torghast
