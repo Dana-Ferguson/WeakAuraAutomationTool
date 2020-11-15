@@ -19,7 +19,7 @@ Adding this macro to your toolbar will allow you to toggle all auras visible / i
 Current (WIP) [Import String](ImportStrings/importString.txt) can be found [here](ImportStrings/).
 The [resource hud](ImportStrings/resourceHud.txt) will be integrated at a later date.
 
-![Screenshot](Images\bear_test.png)
+![Screenshot](Images/bear_test.png)
 
 The general concept is:
 * Alerts Top Left ~ Limit: 1
