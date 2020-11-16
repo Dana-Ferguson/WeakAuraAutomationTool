@@ -22,5 +22,7 @@
         public Spell UnstableAffliction = new Spell("Unstable Affliction", ClassType.Warlock, ClassSpec.Affliction, new[] { 231791, 316099, 334315 }, new[] { 13, 43, 56 }, 0, 136228, new double[] { 0 }, new double[] { 16 }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.PeriodicDamage), new SpellEffectData(SpellEffectName.Dummy, EffectAuraType.None) });
         public Spell VileTaint = new Spell("Vile Taint", ClassType.Warlock, ClassSpec.Affliction, new[] { 278350 }, new[] { 0 }, 12, 1391774, new double[] { 0 }, new double[] { 10 }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModDecreaseSpeed), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.PeriodicDamage) });
         public Spell WritheInAgony = new Spell("Writhe in Agony", ClassType.Warlock, ClassSpec.Affliction, new[] { 196102 }, new[] { 0 }, 4, 136139, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
+
+        public Spell GrimoireSacrifice = new Spell("Grimoire of Sacrifice", ClassType.Warlock, ClassSpec.Affliction, 108503, 18);
     }
 }

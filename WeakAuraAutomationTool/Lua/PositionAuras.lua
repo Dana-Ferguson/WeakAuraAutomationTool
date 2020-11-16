@@ -199,12 +199,13 @@
     end
   end
 
+  --[[
   print('Auras positioned! Core:', coreRotation.p,
     ', CDs:', coreCooldowns.p,
     ', Right:', right.p,
     ', Bottom:', bottom.p,
     ', Top:', top.p,
-    ', Overflow:', overflow.p)
+    ', Overflow:', overflow.p) --]]
 
   return false;
 end

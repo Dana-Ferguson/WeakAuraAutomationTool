@@ -45,6 +45,10 @@ namespace WeakAuraAutomationTool.Barbeque
             ShamanEnhancement.Generate(bbq);
             ShamanRestoration.Generate(bbq);
 
+            WarlockAffliction.Generate(bbq);
+            WarlockDemonology.Generate(bbq);
+            WarlockDestruction.Generate(bbq);
+
             bbq.AddPositioningScript();
         }
     }

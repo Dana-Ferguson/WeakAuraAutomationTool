@@ -25,5 +25,7 @@
         public Spell SoulFire = new Spell("Soul Fire", ClassType.Warlock, ClassSpec.Destruction, new[] { 6353 }, new[] { 0 }, 3, 135809, new double[] { 0 }, new double[] { }, false, 40, new[] { "Soul Fire" }, new[] { new SpellEffectData(SpellEffectName.Dummy, EffectAuraType.None), new SpellEffectData(SpellEffectName.SchoolDamage, EffectAuraType.None) });
         public Spell Soulstone = new Spell("Soulstone", ClassType.Warlock, ClassSpec.Destruction, new[] { 231811 }, new[] { 48 }, 0, 136210, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy) });
         public Spell SummonInfernal = new Spell("Summon Infernal", ClassType.Warlock, ClassSpec.Destruction, new[] { 1122, 335175 }, new[] { 42, 58 }, 0, 136219, new double[] { 180 }, new double[] { 0.25 }, false, 40, new[] { "Warlock - Summon Guardian" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddPctModifier), new SpellEffectData(SpellEffectName.Summon, EffectAuraType.None), new SpellEffectData(SpellEffectName.TriggerMissile, EffectAuraType.None), new SpellEffectData(SpellEffectName.TriggerMissileSpellWithValue, EffectAuraType.None) });
+
+        public Spell GrimoireSacrifice = new Spell("Grimoire of Sacrifice", ClassType.Warlock, ClassSpec.Destruction, 108503, 18);
     }
 }

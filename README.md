@@ -66,7 +66,7 @@ Classes (1st Pass)
 - [X] Priest
 - [X] Shaman
 - [ ] Mage
-- [ ] Warlock
+- [X] Warlock
 - [ ] Monk
 - [X] Demon Hunter
 - [X] Death Knight
@@ -110,6 +110,13 @@ Classes (2nd Pass)
   - [ ] Frost Fever
   - [ ] Death Strike heal tracker? (unsure about)
   - [ ] Bone Shield alerts
+- [ ] Warlock
+  - [ ] Soul shard Tracker (on Resource Hud)
+  - [ ] Seed of Corruption Tracker
+  - [ ] Curse Tracker
+  - [ ] Fear Tracker
+  - [ ] Casting Ritual of Doom Alert
+  - [ ] Doom Tracker
 
 Data
 - [X] Extract Data from Game

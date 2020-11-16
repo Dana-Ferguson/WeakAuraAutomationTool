@@ -19,5 +19,11 @@
         public Spell SummonDemonicTyrant = new Spell("Summon Demonic Tyrant", ClassType.Warlock, ClassSpec.Demonology, new[] { 265187, 334585 }, new[] { 42, 58 }, 0, 2065628, new double[] { 0 }, new double[] { 15 }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddFlatModifier), new SpellEffectData(SpellEffectName.Energize, EffectAuraType.None), new SpellEffectData(SpellEffectName.Summon, EffectAuraType.None) });
         public Spell SummonFelguard = new Spell("Summon Felguard", ClassType.Warlock, ClassSpec.Demonology, new[] { 30146 }, new[] { 12 }, 0, 136216, new double[] { 0 }, new double[] { -0.001 }, false, 0, new[] { "Warlock - Summon Demon" }, new[] { new SpellEffectData(SpellEffectName.SummonPet, EffectAuraType.None) });
         public Spell SummonVilefiend = new Spell("Summon Vilefiend", ClassType.Warlock, ClassSpec.Demonology, new[] { 264119 }, new[] { 1 }, 12, 1616211, new double[] { 0 }, new double[] { 15 }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.Summon, EffectAuraType.None) });
+
+        // Wow, my script missed a lot here
+        public Spell DemonicCore = new Spell("Demonic Core", ClassType.Warlock, ClassSpec.Demonology, 267102, 0);
+        public Spell DemonicStrength = new Spell("Demonic Strength", ClassType.Warlock, ClassSpec.Demonology, 267171, 3);
+        public Spell PowerSiphon = new Spell("Power Siphon", ClassType.Warlock, ClassSpec.Demonology, 264130, 5);
+        public Spell NetherPortal = new Spell("Nether Portal", ClassType.Warlock, ClassSpec.Demonology, 267217, 21);
     }
 }
