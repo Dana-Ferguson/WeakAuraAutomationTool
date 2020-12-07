@@ -27,33 +27,32 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 discipline.MassDispel,
                 // How many hit by scream?
                 discipline.PsychicScream,
+                discipline.ShadowWordDeath,
                 discipline.ShiningForce.DeBuff()
             ).AddRightBar(
                 // Cooldowns
                 discipline.PowerWordBarrier.Buff(),
-                discipline.Shadowfiend.Buff(),
                 discipline.PowerInfusion.Buff(),
                 discipline.PainSuppression,
                 discipline.Rapture.Buff(),
                 discipline.Evangelism,
                 discipline.SpiritShell.Buff()
             ).AddCoreRotation(
-                discipline.Penance,
                 // Purge the Wicked
                 discipline.ShadowWordPain.DoT().Passive(),
-                discipline.MindBlast.BigStacks(),
-                discipline.ShadowWordDeath,
-                discipline.PowerWordSolace,
                 discipline.Schism.DeBuff(),
+                discipline.PowerWordSolace,
+                discipline.Penance,
+                discipline.MindBlast.BigStacks(),
                 discipline.PowerWordRadiance.Buff(),
                 discipline.ShadowCovenant,
                 discipline.Halo,
-                discipline.DivineStar
+                discipline.DivineStar,
+                discipline.Shadowfiend.Buff()
             ).AddCoreCooldowns(
             ).AddBottomBar(
                 // discipline.PowerWordShield.AssociateAura(discipline.BodyAndSoul),
-                discipline.Purify,
-                discipline.DispelMagic
+                discipline.Purify
             ).AddTopBar(
                 // Weakened Soul on Target? (Tracker for Group?)
                 discipline.Levitate.Buff().Passive(),

@@ -39,5 +39,11 @@
         public Spell VoidEruption = new Spell("Void Eruption", ClassType.Priest, ClassSpec.Shadow, new[] { 228260, 319908 }, new[] { 23, 39 }, 0, 1386548, new double[] { 0 }, new double[] { }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.AddPctModifier), new SpellEffectData(SpellEffectName.Dummy, EffectAuraType.None) });
         public Spell VoidTorrent = new Spell("Void Torrent", ClassType.Priest, ClassSpec.Shadow, new[] { 263165 }, new[] { 0 }, 18, 1386551, new double[] { 0 }, new double[] { 3 }, false, 40, new[] { "uncategorized" }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.PeriodicDamage), new SpellEffectData(SpellEffectName.TriggerSpell, EffectAuraType.None) });
         public Spell Voidform = new Spell("Voidform", ClassType.Priest, ClassSpec.Shadow, new[] { 185916, 228264 }, new[] { 10, 23 }, 0, 1386550, new double[] { }, new double[] { }, false, 0, new string[] { }, new[] { new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.Dummy), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ModAttackerSpellCritChance), new SpellEffectData(SpellEffectName.ApplyAura, EffectAuraType.ProcOnPowerAmount) });
+
+        public Spell DarkThought = new Spell("Dark Thought", ClassType.Priest, ClassSpec.Shadow, 341207, 0);
+
+        // todo: Priest Covenant Spell
+        public Spell UnholyNova = new Spell("Unholy Nova", ClassType.Priest, ClassSpec.Base, 324724, 0);
+        public Spell Fleshcraft = new Spell("Fleshcraft", ClassType.Priest, ClassSpec.Base, 324631, 0);
     }
 }

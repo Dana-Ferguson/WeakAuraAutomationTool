@@ -18,53 +18,56 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
             // todo: MindVision Alert
 
             builder.AddOverflow(
+                shadow.PurifyDisease,
+                shadow.DispelMagic,
                 shadow.Dispersion.Buff(),
-                shadow.Silence.DeBuff(),
-                shadow.PsychicHorror.DeBuff(),
                 shadow.DesperatePrayer,
                 shadow.Fade.Buff(),
                 shadow.LeapOfFaith,
                 shadow.MassDispel,
-                shadow.PsychicScream,
-                shadow.MindBomb.DeBuff()
+                shadow.PsychicScream
+            ).AddBottomBar(
+                shadow.Silence.DeBuff(),
+                shadow.PsychicHorror.DeBuff(),
+                shadow.MindBomb.DeBuff(),
+                shadow.VampiricEmbrace.Buff(),
+                shadow.Fleshcraft.Buff()
             ).AddRightBar(
                 shadow.Shadowfiend.Buff(),
+                shadow.UnholyNova.DeBuff(),
                 shadow.PowerInfusion.Buff(),
-                shadow.VampiricEmbrace.Buff(),
                 // todo: shadow.SearingNightmare,
-                shadow.ShadowCrash,
-                shadow.VoidTorrent,
                 shadow.SurrenderToMadness.Buff()
             ).AddCoreRotation(
                 shadow.VampiricTouch.DoT().Passive(),
                 shadow.ShadowWordPain.DoT().Passive(),
+                shadow.MindBlast.BigStacks().AssociateAura(shadow.DarkThought).UseIcon(shadow.MindBlast),
                 shadow.DevouringPlague.DoT().Passive(),
-                shadow.MindBlast.BigStacks(),
-                // todo: Associate with Death and Madness
-                // todo: will this become Void Bolt?
                 shadow.VoidEruption.Buff(),
+                // todo: Associate with Death and Madness
+                shadow.ShadowWordDeath.AssociateAura(shadow.DeathAndMadness).UseIcon(shadow.ShadowWordDeath),
                 shadow.Damnation,
-                shadow.ShadowWordDeath
+                shadow.ShadowCrash,
+                shadow.VoidTorrent
             ).AddCoreCooldowns(
-            ).AddBottomBar(
-                shadow.PowerWordShield.AssociateAura(shadow.BodyAndSoul),
-                shadow.PurifyDisease,
-                shadow.DispelMagic
             ).AddTopBar(
-                shadow.AncientMadness.Buff().Passive(),
                 shadow.Voidform.Buff().Passive(),
-                shadow.Levitate.Buff().Passive(),
-                shadow.ShackleUndead.Passive().DeBuff(),
-                shadow.MindSoothe.Passive().DeBuff(),
+                shadow.DarkThought.Passive().Buff(),
+                shadow.DeathAndMadness.Passive().DeBuff().UseIcon(shadow.MindBlast),
+                shadow.BodyAndSoul.Passive().Buff().UseIcon(shadow.PowerWordShield),
+                // shadow.AncientMadness.Buff().Passive(),
+                // shadow.ShackleUndead.Passive().DeBuff(),
+                // shadow.MindSoothe.Passive().DeBuff(),
                 shadow.TwistOfFate.Passive().Buff(),
                 shadow.HungeringVoid.Passive().DeBuff()
             ).AddAlerts(
-                shadow.PowerWordFortitude.Passive().MissingBuff(),
+                // shadow.PowerWordFortitude.Passive().MissingBuff(),
+                shadow.Levitate.Buff().Passive(),
                 shadow.Shadowform.Buff().Passive().MissingBuff(),
                 shadow.Voidform.Buff().Passive(),
                 shadow.Dispersion.Buff().Passive(),
                 shadow.MindControl.Buff().Passive(),
-                shadow.DeathAndMadness.Passive().DeBuff(),
+                // shadow.DeathAndMadness.Passive().DeBuff(),
                 shadow.UnfurlingDarkness.Passive().Buff(),
                 shadow.SurrenderToMadness.Passive().Buff()
             ).Build(wa);

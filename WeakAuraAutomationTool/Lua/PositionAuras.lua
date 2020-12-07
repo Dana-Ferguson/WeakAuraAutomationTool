@@ -140,27 +140,27 @@
 
   -- Default Grids
   local overflow = Grid:create({
-    x=0, y=-2, w=8, h=5, id=1, inLine=direction.right, nextLine=direction.down
+    x=0, y=-2, w=8, h=5, id=1, inLine=direction.right, nextLine=direction.down, size=40
   })
 
   local coreRotation = Grid:create({
-    x=-1, y=5, w=2, h=5, id=2, inLine=direction.right, nextLine=direction.down, limit = 8
+    x=-1, y=5, w=2, h=5, id=2, inLine=direction.right, nextLine=direction.down, limit=8
   })
 
   local coreCooldowns = Grid:create({
-    x=0, y=2, w=2, h=5, id=3, inLine=direction.left, nextLine=direction.up, limit = 8
+    x=0, y=2, w=2, h=5, id=3, inLine=direction.left, nextLine=direction.up, limit=8
   })
 
   local bottom = Grid:create({
-    x=2, y=0, w=5, h=5, id=4, inLine=direction.right, nextLine=direction.down, limit = 5
+    x=2, y=0, w=5, h=5, id=4, inLine=direction.right, nextLine=direction.down, limit=6, size=40
   })
 
   local top = Grid:create({
-    x=3, y=6, w=5, h=2, id=5, inLine=direction.right, nextLine=direction.down, limit = 5
+    x=3, y=6, w=5, h=2, id=5, inLine=direction.right, nextLine=direction.down, limit=6, size=40
   })
 
   local right = Grid:create({
-    x=7, y=5, w=1, h=4, id=6, inLine=direction.down, nextLine=direction.right, limit = 4
+    x=7, y=5, w=1, h=4, id=6, inLine=direction.down, nextLine=direction.right, limit=4
   })
 
   local grids = {

@@ -27,6 +27,7 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 holy.MassDispel,
                 // How many hit by scream?
                 holy.PsychicScream,
+                holy.ShadowWordDeath,
                 holy.ShiningForce.DeBuff()
             ).AddRightBar(
                 // Cooldowns
@@ -44,13 +45,11 @@ namespace WeakAuraAutomationTool.Barbeque.Auras
                 holy.HolyWordSanctify,
                 holy.HolyWordSerenity,
                 holy.HolyWordChastise,
-                holy.ShadowWordPain.DoT().Passive(),
-                holy.ShadowWordDeath
+                holy.ShadowWordPain.DoT().Passive()
             ).AddCoreCooldowns(
             ).AddBottomBar(
                 // discipline.PowerWordShield.AssociateAura(discipline.BodyAndSoul),
-                holy.Purify,
-                holy.DispelMagic
+                holy.Purify
             ).AddTopBar(
                 holy.Levitate.Passive().Buff(),
                 holy.ShackleUndead.Passive().DeBuff(),
